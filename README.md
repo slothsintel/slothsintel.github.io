@@ -1,1 +1,1 @@
-# slothsintel.github.io
+# slothsintel homepage

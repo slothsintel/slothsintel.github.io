@@ -4,142 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sloths Intel</title>
-  <meta name="description" content="Sloths Intel’s data portfolio blending space, calm, and modern tech style." />
+  <meta name="description" content="Messy business data? Our hybrid AI turns it into confident decisions." />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Favicons (optional, only if you have these files in assets/) -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
   <link rel="icon" href="assets/favicon.ico">
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="glow-overlay"></div>
-
   <header class="site-header">
     <div class="container nav-container">
       <div class="logo">
-        <!-- Optional: only works if this file exists -->
         <img class="logo-img" src="assets/sloths-intel_badge_128.png" alt="Sloths Intel logo" />
         <span class="logo-text">Sloths <span>Intel</span></span>
       </div>
+
       <nav class="main-nav">
-        <button class="nav-link active" data-section="home">Home</button>
-        <button class="nav-link" data-section="cv">CV</button>
-        <button class="nav-link" data-section="education">Education</button>
-        <button class="nav-link" data-section="projects">Projects</button>
-        <button class="nav-link" data-section="visuals">Visuals</button>
-        <button class="nav-link" data-section="interviews">Interviews</button>
-        <button class="nav-link" data-section="football">Football</button>
-        <button class="nav-link" data-section="cooking">Cooking</button>
+        <a class="nav-link active" href="index.html" aria-current="page">home</a>
+        <a class="nav-link" href="about.html">about</a>
+        <a class="nav-link" href="approach.html">approach</a>
+        <a class="nav-link" href="products.html">products</a>
+        <a class="nav-link" href="people.html">people</a>
+        <a class="nav-link" href="vacancy.html">vacancy</a>
+        <a class="nav-link" href="contact.html">contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HOME -->
-    <section id="home" class="tab-section active">
-      <div class="container grid-2">
+    <section id="home" class="tab-section">
+      <div class="container grid-1 center-horizontal center-vertical">
         <div>
-          <p class="pill">🦥 Calm in Motion, Data in Flow</p>
-          <h1>Xi Lu</h1>
-          <p class="hero-subtitle">
-            I’m a <span class="highlight">data professional</span> exploring the intersection of analytics, design, and calm thinking.
-            Based between Cambridge, UK & Hong Kong, I craft experiences that merge logic and serenity.
-          </p>
-          <div class="hero-tags">
-            <span class="tag">Data</span>
-            <span class="tag">Tech</span>
-            <span class="tag">Football</span>
-            <span class="tag">Cooking</span>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <h2>Profile snapshot</h2>
-          <ul>
-            <li>📍 Location: Cambridge, UK & Hong Kong</li>
-            <li>💼 Role: Data professional</li>
-            <li>💻 Stack: Python, SQL, Power BI, Tableau</li>
-            <li>📫 Email: <a href="mailto:xi.lu">xi.lu</a></li>
-            <li>🐾 Motto: Slow is smooth, smooth is fast</li>
-          </ul>
-          <div class="hero-links">
-            <a href="https://github.com/drxilu" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
+          <p class="lead">Messy business data?</p>
+          <p class="lead">Our hybrid AI turns it into confident decisions.</p>
+          <p class="pill">Deliberate intelligence for reliable decisions.</p>
         </div>
       </div>
     </section>
 
-    <!-- PLACEHOLDER SECTIONS -->
-    <section id="cv" class="tab-section"><div class="container"><h2>CV</h2><p>Coming soon.</p></div></section>
-    <section id="education" class="tab-section"><div class="container"><h2>Education</h2><p>Coming soon.</p></div></section>
-    <section id="projects" class="tab-section"><div class="container"><h2>Projects</h2><p>Coming soon.</p></div></section>
-    <section id="visuals" class="tab-section"><div class="container"><h2>Visuals</h2><p>Coming soon.</p></div></section>
-    <section id="interviews" class="tab-section"><div class="container"><h2>Interviews & Talks</h2><p>Coming soon.</p></div></section>
-    <section id="football" class="tab-section"><div class="container"><h2>Football</h2><p>Coming soon.</p></div></section>
-    <section id="cooking" class="tab-section"><div class="container"><h2>Cooking</h2><p>Coming soon.</p></div></section>
+    
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <p>© <span id="year"></span> Xi Lu · Built in sloth mode 🦥</p>
+      <p>© 2025-<span id="year"></span> Sloths Intel</p>
       <div class="footer-links">
-        <a href="https://github.com/drxilu" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/slothsintel" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Tab switching
-    const navLinks = document.querySelectorAll(".nav-link");
-    const sections = document.querySelectorAll(".tab-section");
-
-    function setActiveSection(id) {
-      sections.forEach(sec => sec.classList.toggle("active", sec.id === id));
-      navLinks.forEach(link => link.classList.toggle("active", link.dataset.section === id));
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => setActiveSection(link.dataset.section));
-    });
-
-    // Year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Parallax space background
-    (function () {
-      const maxOffset = 16; // how far the background moves in px
-
-      function updateParallax(xNorm, yNorm) {
-        const x = (xNorm - 0.5) * -maxOffset;
-        const y = (yNorm - 0.5) * -maxOffset;
-        document.body.style.setProperty("--parallax-x", x.toFixed(2) + "px");
-        document.body.style.setProperty("--parallax-y", y.toFixed(2) + "px");
-      }
-
-      window.addEventListener("pointermove", function (e) {
-        const xNorm = e.clientX / window.innerWidth;
-        const yNorm = e.clientY / window.innerHeight;
-        updateParallax(xNorm, yNorm);
-      });
-
-      // Gentle autonomous drift, so it moves even when idle
-      let t = 0;
-      setInterval(function () {
-        t += 0.0025;
-        const xNorm = 0.5 + Math.sin(t) * 0.02;
-        const yNorm = 0.5 + Math.cos(t) * 0.02;
-        updateParallax(xNorm, yNorm);
-      }, 30);
-    })();
   </script>
 </body>
 </html>

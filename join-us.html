@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sloths Intel · Join us</title>
+  <meta name="description" content="Join Sloths Intel — future members and current members." />
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container nav-container">
+    <div class="logo">
+      <img class="logo-img" src="assets/sloths-intel_badge_128.png" alt="Sloths Intel logo" />
+      <span class="logo-text">Sloths <span>Intel</span></span>
+    </div>
+
+    <nav class="main-nav">
+      <a class="nav-link" href="index.html#home">home</a>
+      <a class="nav-link" href="index.html#about">about</a>
+      <a class="nav-link" href="index.html#approach">approach</a>
+      <a class="nav-link" href="products.html">products</a>
+      <a class="nav-link active" href="join-us.html" aria-current="page">join us</a>
+      <a class="nav-link" href="contact.html">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="tab-section">
+    <div class="container">
+      <h1>Join us</h1>
+
+      <!-- =========================
+           SECTION 1: FUTURE MEMBERS
+           ========================= -->
+      <div class="divider"></div>
+      <h2>Future members</h2>
+
+      <p>
+        We’re building a small, high-trust team. We value clear thinking, practical delivery,
+        and systems that remain explainable and maintainable.
+      </p>
+      <div class="sub-divider"></div>
+        <h3>Internships: <strong>AI / Data Science Intern (paid)</strong></h3>
+        <p>
+        Support applied modelling and decision support work, including data preparation,
+        evaluation, and small prototypes tested with real users.
+        Roles are paid and based in Cambridgeshire or London.
+        </p>
+        <div class="sub-divider"></div>
+      <h3>Open applications: <strong>Engineering / Research Collaboration</strong></h3>
+
+      <p>
+        If you enjoy turning ambiguity into usable tools — calm interfaces, reliable logic,
+        and decision-ready outputs — we’re open to a conversation even without a fixed role.
+      </p>
+      <div class="sub-divider"></div>
+      <h3>How to apply</h3>
+      <p>
+        Email <a href="mailto:recruitment@slothsintel.com">recruitment@slothsintel.com</a>
+        with a short intro, your availability (internship / part-time / full-time), and links to your work
+        (GitHub, portfolio, papers, or case studies). If possible, include one example of a problem you solved and how you approached it.
+      </p>
+
+      <p style="font-size: 0.85rem; color: var(--muted);">Sloths Intel is an equal opportunity organisation and welcomes applicants regardless of background.</p>
+
+
+      <!-- =========================
+           SECTION 2: CURRENT MEMBERS
+           ========================= -->
+      <div class="divider"></div>
+      <h2>Current members</h2>
+
+      <p>
+        We work as a focused core team and collaborate with specialists when needed.
+        Our default is deliberate execution: clarity first, then delivery.
+      </p>
+      <div class="sub-divider"></div>
+      <h3>
+        Chief Scientist -
+        <a href="https://xilu.slothsintel.com/" target="_blank" rel="noopener">Xi Lu</a>
+      </h3>
+      <p>
+        Leads the technical direction of Sloths Intel, focusing on hybrid intelligence:
+        combining statistical methods, machine learning, domain knowledge, and judgement to support confident decisions.
+      </p>
+      <p>
+        Dr Lu has a PhD in Information Technology from King's COllege London and 10+ years of experience
+        applying AI to real-world problems in telecommunications, healthcare, finance, and sustainability.
+      </p>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <p>© 2025-<span id="year"></span> Sloths Intel</p>
+    <div class="footer-links">
+      <a href="https://github.com/slothsintel" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

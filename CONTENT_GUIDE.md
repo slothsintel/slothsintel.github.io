@@ -62,3 +62,18 @@ Paragraph 3:
 - “Revolutionary”, “game-changing”, “disruptive”
 - “Cutting-edge” (replace with what it actually does)
 - “AI-powered” (replace with the result and method)
+
+
+## Join us page (recommended)
+
+Use two blocks, each exactly 3 paragraphs:
+
+### Block 1: Join us (People + Vacancy)
+1) Who we are (people)
+2) Who fits (values)
+3) How to start (email / links)
+
+### Block 2: Short bio
+1) Focus / scope
+2) How we work
+3) Invitation / next step

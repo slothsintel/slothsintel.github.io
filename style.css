@@ -216,3 +216,102 @@ a:hover{ text-decoration: underline; }
   margin: 1.2rem 0;
   opacity: 0.7;
 }
+
+.about-quote {
+  max-width: 720px;
+  margin: 3rem 0 3.5rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--divider);
+}
+
+.quote-lead {
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 0.6rem;
+  color: var(--text);
+}
+
+.quote-body {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--muted);
+}
+
+.spacer-lg {
+  height: 2.4rem;
+}
+
+.spacer-xl {
+  height: 3.2rem;
+}
+
+.emphasis {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.about-quote {
+  margin-left: 1.5rem;
+}
+
+.hybrid-diagram {
+  max-width: 680px;
+  margin: 2.4rem auto 3rem;
+  color: var(--muted);
+}
+
+.hybrid-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
+}
+
+/* SVG text via class so we can size it responsively */
+.hybrid-center {
+  font-size: 14px;
+  font-weight: 500;
+  fill: currentColor;
+}
+
+/* Legend: responsive pills */
+.hybrid-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.6rem 0 0.9rem;
+}
+
+.legend-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(15,31,23,0.12);
+  background: rgba(255,255,255,0.9);
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.diagram-caption {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Mobile tuning */
+@media (max-width: 520px) {
+  .hybrid-diagram { margin: 2rem auto 2.4rem; }
+  .diagram-caption { font-size: 0.9rem; text-align: left; }
+  .hybrid-legend { justify-content: flex-start; }
+  .legend-pill { font-size: 0.82rem; }
+}
+

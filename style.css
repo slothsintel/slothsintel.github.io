@@ -1,6 +1,36 @@
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-padding-top: 96px; }
+:root{
+  /* ...keep your existing vars... */
+  --header-offset: 108px; /* header total height (tweak to 96/112 if needed) */
+}
+
+/* make anchor jumps stop below the fixed header too */
+html{
+  scroll-padding-top: var(--header-offset);
+}
+
+/* reserve space so content never sits under the header */
+body{
+  padding-top: var(--header-offset);
+}
+
+/* keep header pinned */
+.site-header{
+  position: fixed;  /* if you already use fixed, keep it; if sticky wasn't working, fixed will */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--bg);
+}
+
+/* optional: prevent any width “jump” due to fixed positioning */
+.site-header .container{
+  width: 100%;
+}
+
+
 
 /* Softer, more “creamy green” palette */
 :root{
@@ -32,15 +62,6 @@ html, body{
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.4rem;
-}
-
-/* Sticky header that doesn’t reveal content behind */
-.site-header{
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--bg);
-  padding: 1rem 0;
 }
 
 /* Header + footer “card” */
@@ -313,5 +334,81 @@ a:hover{ text-decoration: underline; }
   .diagram-caption { font-size: 0.9rem; text-align: left; }
   .hybrid-legend { justify-content: flex-start; }
   .legend-pill { font-size: 0.82rem; }
+}
+
+/* Dropdown wrapper */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Remove default marker and make summary behave like a nav pill */
+.nav-dropdown > summary {
+  list-style: none;
+}
+.nav-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Add a subtle caret, optional */
+.nav-dropdown > summary::after {
+  content: "≡";
+  margin-left: 0.5rem;
+  font-size: 1.5em;
+  opacity: 0.5;
+  letter-spacing: -0.05em;
+}
+
+
+/* Dropdown menu */
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  padding: 0.6rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid var(--divider);
+  box-shadow: 0 12px 28px rgba(15,31,23,0.12);
+  z-index: 2000;
+}
+
+/* Menu links */
+.nav-dropdown-link {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav-dropdown-link:hover {
+  background: rgba(47,125,99,0.10);
+  color: var(--text);
+}
+
+/* Close menu when not open */
+.nav-dropdown:not([open]) .nav-dropdown-menu {
+  display: none;
+}
+
+/* Mobile: make dropdown menu full-width-ish and not clipped */
+@media (max-width: 520px) {
+  .nav-dropdown-menu {
+    left: 0;
+    right: auto;
+    min-width: 210px;
+  }
+}
+
+/* Prevent fixed nav from covering section headers */
+section,
+.tab-section {
+  scroll-margin-top: var(--header-offset);
 }
 

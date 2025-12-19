@@ -20,16 +20,31 @@
       <span class="logo-text">Sloths <span>Intel</span></span>
     </div>
 
-    <nav class="main-nav">
-      <a class="nav-link" href="index.html#home">home</a>
-      <a class="nav-link" href="index.html#about">about</a>
-      <a class="nav-link" href="index.html#approach">approach</a>
-      <a class="nav-link" href="index.html">pricing</a>
-      <a class="nav-link active" href="products.html" aria-current="page">products</a>
-      <a class="nav-link" href="join-us.html#joinus">join us</a>
-      <a class="nav-link" href="join-us.html#team">team</a>
-      <a class="nav-link" href="contact.html">contact</a>
-    </nav>
+      <nav class="main-nav">
+        <!-- HOME dropdown -->
+        <details class="nav-dropdown">
+          <summary class="nav-link" href="index.html">home</summary>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Home sections">
+            <a class="nav-dropdown-link" href="index.html#home" role="menuitem">home</a>
+            <a class="nav-dropdown-link" href="index.html#about" role="menuitem">about</a>
+            <a class="nav-dropdown-link" href="index.html#approach" role="menuitem">approach</a>
+            <a class="nav-dropdown-link" href="index.html#pricing" role="menuitem">pricing</a>
+          </div>
+        </details>
+
+        <!-- Keep the rest as top-level -->
+        <a class="nav-link active" aria-current="products.html">products</a>
+        <!-- CAREER dropdown -->
+        <details class="nav-dropdown">
+          <summary class="nav-link" href="career.html">career</summary>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Career sections">
+            <a class="nav-dropdown-link" href="career.html#joinus" role="menuitem">joinus</a>
+            <a class="nav-dropdown-link" href="career.html#team" role="menuitem">team</a>
+          </div>
+        </details>
+
+        <a class="nav-link" href="contact.html">contact</a>
+      </nav>
   </div>
 </header>
 
@@ -73,6 +88,22 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script>
+  // Close dropdown after selecting a menu item
+  document.querySelectorAll(".nav-dropdown-link").forEach(a => {
+    a.addEventListener("click", () => {
+      const dd = a.closest("details");
+      if (dd) dd.removeAttribute("open");
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll(".nav-dropdown[open]").forEach(dd => {
+      if (!dd.contains(e.target)) dd.removeAttribute("open");
+    });
+  });
 </script>
 
 </body>

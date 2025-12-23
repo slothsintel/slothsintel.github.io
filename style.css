@@ -586,3 +586,77 @@ p {
 .contact-form .btn:hover{
   transform: translateY(-1px);
 }
+
+/* =========================================
+   CONTACT FORM — consistent alignment on web
+========================================= */
+
+.contact-form{
+  margin-top: 1.2rem;
+  max-width: 720px;
+}
+
+.contact-form .form-row{
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0.95rem 0;
+}
+
+.contact-form label{
+  font-weight: 550;
+  color: var(--text);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.4;
+  outline: none;
+
+  /* Key: makes sizing consistent across browsers */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.contact-form textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  border-color: rgba(47,125,99,0.55);
+  box-shadow: 0 0 0 3px rgba(47,125,99,0.16);
+}
+
+.contact-form button{
+  margin-top: 0.6rem;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 9999px;
+  border: 1px solid rgba(15,31,23,0.12);
+  background: rgba(255,255,255,0.92);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.contact-form button:hover{
+  color: var(--text);
+  border-color: rgba(47,125,99,0.35);
+}

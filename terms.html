@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sloths Intel · Contact</title>
+  <title>Sloths Intel · Terms</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="contact-page">
+<body class="terms-page">
 
 <header class="site-header">
   <div class="container nav-container">
@@ -32,6 +32,7 @@
 
         <!-- Keep the rest as top-level -->
         <a class="nav-link" href="products.html">products</a>
+
         <!-- CAREER dropdown -->
         <details class="nav-dropdown">
           <summary class="nav-link" href="careers.html">careers</summary>
@@ -41,85 +42,67 @@
           </div>
         </details>
 
-        <a class="nav-link active" href="contact.html">contact</a>
+        <a class="nav-link" href="contact.html">contact</a>
       </nav>
   </div>
 </header>
 
-
 <main>
   <section class="tab-section">
     <div class="container">
-      <h1>Contact</h1>
+      <h1>Terms</h1>
       <div class="divider"></div>
-      <p>
-        We work with organisations facing imperfect data and limited resources.
-        If you’d like to discuss a project, collaboration, or partnership, we’re happy to start a conversation.
-      </p>
 
       <p>
-        The best way to contact us is to send a message using the form below.
+        These terms apply to your use of the Sloths Intel website. By accessing this site, you agree to the terms below.
       </p>
 
-      <form
-        class="contact-form"
-        action="https://formspree.io/f/mykgldpr"
-        method="POST"
-      >
-
-        <div class="form-row">
-          <label for="category">Query category</label>
-          <select id="category" name="category" required>
-            <option value="" selected disabled>Select a category</option>
-            <option value="general">general information</option>
-            <option value="products">products enquiry</option>
-            <option value="careers">careers and collaboration</option>
-            <option value="existing clients">existing clients</option>
-            <option value="other">other</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <label for="name">Full name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required />
-        </div>
-
-        <div class="form-row">
-          <label for="email">Email address</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-        </div>
-
-        <div class="form-row">
-          <label for="organisation">Organisation (optional)</label>
-          <input id="organisation" name="organisation" type="text" autocomplete="organisation" optional />
-        </div>
-
-        <div class="form-row">
-          <label for="position">Position (optional)</label>
-          <input id="position" name="position" type="text" autocomplete="position" optional />
-        </div>
-
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="8" required></textarea>
-        </div>
-
-        <button class="btn" type="submit">Send</button>
-        <input type="hidden" name="_redirect" value="/thanks.html">
-      </form>
-
+      <h2>About us</h2>
       <p>
-        Alternatively, you can email us at: <a href="mailto:info@slothsintel.com">info@slothsintel.com</a>. 
-        Please include a short description of your project including context, data sources, and constraints,
-        and what decision you’re trying to make.
+        Sloths Intel is a UK-registered limited company (Company No. 16907507) providing data and AI consultancy services.
+        Information on this website is provided for general information only.
       </p>
 
-      <p style="font-size: 0.85rem; color: var(--muted);">Sloths Intel Will only use your details to respond to your enquiry.</p>
+      <h2>Use of this website</h2>
+      <p>
+        You may use this website for lawful purposes only. You must not misuse the site, attempt unauthorised access,
+        or interfere with its operation.
+      </p>
 
+      <h2>No advice</h2>
+      <p>
+        Content on this website does not constitute legal, financial, or professional advice.
+        Any reliance on information from this site is at your own discretion.
+      </p>
+
+      <h2>Engagements</h2>
+      <p>
+        Any consultancy services, collaborations, or projects will be governed by separate written agreements defining scope,
+        responsibilities, fees, confidentiality, and data handling.
+      </p>
+
+      <h2>Intellectual property</h2>
+      <p>
+        All content on this website is owned by Sloths Intel unless otherwise stated.
+        You may not reproduce or reuse content without prior permission.
+      </p>
+
+      <h2>Liability</h2>
+      <p>
+        To the extent permitted by law, Sloths Intel accepts no liability for loss or damage arising from use of this website.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions regarding these terms may be sent to <a href="mailto:info@slothsintel.com">info@slothsintel.com</a>.
+      </p>
+
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 2rem;">
+        Last updated: December 2025
+      </p>
     </div>
   </section>
 </main>
-
 
 <div id="site-footer"></div>
 

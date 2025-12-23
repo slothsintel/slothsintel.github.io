@@ -27,7 +27,7 @@
       <nav class="main-nav">
         <!-- HOME dropdown -->
         <details class="nav-dropdown">
-          <summary class="nav-link active" aria-current="page">home</summary>
+          <summary class="nav-link active" href="page">home</summary>
           <div class="nav-dropdown-menu" role="menu" aria-label="Home sections">
             <a class="nav-dropdown-link" href="index.html#home" role="menuitem">home</a>
             <a class="nav-dropdown-link" href="index.html#about" role="menuitem">about</a>
@@ -160,15 +160,16 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <p>© 2025-<span id="year"></span> Sloths Intel</p>
-      <div class="footer-links">
-        <a href="https://github.com/slothsintel" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
+
+  <script>
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("site-footer").innerHTML = html;
+        document.getElementById("year").textContent = new Date().getFullYear();
+      });
+  </script>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();

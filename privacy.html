@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sloths Intel · Privacy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="privacy-page">
+
+<header class="site-header">
+  <div class="container nav-container">
+    <div class="logo">
+      <img class="logo-img" src="assets/sloths-intel_badge_128.png" alt="Sloths Intel logo" />
+      <span class="logo-text">Sloths <span>Intel</span></span>
+    </div>
+
+      <nav class="main-nav">
+        <!-- HOME dropdown -->
+        <details class="nav-dropdown">
+          <summary class="nav-link" href="index.html">home</summary>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Home sections">
+            <a class="nav-dropdown-link" href="index.html#home" role="menuitem">home</a>
+            <a class="nav-dropdown-link" href="index.html#about" role="menuitem">about</a>
+            <a class="nav-dropdown-link" href="index.html#approach" role="menuitem">approach</a>
+            <a class="nav-dropdown-link" href="index.html#pricing" role="menuitem">pricing</a>
+          </div>
+        </details>
+
+        <!-- Keep the rest as top-level -->
+        <a class="nav-link" href="products.html">products</a>
+
+        <!-- CAREER dropdown -->
+        <details class="nav-dropdown">
+          <summary class="nav-link" href="careers.html">careers</summary>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Careers sections">
+            <a class="nav-dropdown-link" href="careers.html#joinus" role="menuitem">joinus</a>
+            <a class="nav-dropdown-link" href="careers.html#team" role="menuitem">team</a>
+          </div>
+        </details>
+
+        <a class="nav-link" href="contact.html">contact</a>
+      </nav>
+  </div>
+</header>
+
+<main>
+  <section class="tab-section">
+    <div class="container">
+      <h1>Privacy</h1>
+      <div class="divider"></div>
+
+      <p>
+        Sloths Intel respects your privacy and is committed to protecting the personal and business data you share with us.
+        This notice explains what information we collect, how we use it, and your rights under applicable data protection law.
+      </p>
+
+      <h2>Who we are</h2>
+      <p>
+        Sloths Intel is a UK-registered data and AI consultancy (Company No. 16907507).
+        If you have any questions about this notice or how we handle data, please contact us at
+        <a href="mailto:info@slothsintel.com">info@slothsintel.com</a>.
+      </p>
+
+      <h2>What data we collect</h2>
+      <p>
+        Depending on the nature of your enquiry or engagement, we may collect and process:
+      </p>
+      <ul>
+        <li>Personal contact details (such as name and email address)</li>
+        <li>Business information provided during enquiries or projects</li>
+        <li>Raw data and metadata relating to clients’ small and medium-sized business operations, systems, or datasets</li>
+        <li>Messages and supporting context shared with us</li>
+      </ul>
+
+      <h2>How we use your data</h2>
+      <p>
+        We use data only to:
+      </p>
+      <ul>
+        <li>Respond to enquiries and communications</li>
+        <li>Deliver agreed consultancy, analytical, or technical services</li>
+        <li>Support analysis, modelling, automation, and decision-making as requested by clients</li>
+      </ul>
+      <p>
+        We do not use client data for marketing purposes without explicit consent.
+      </p>
+
+      <h2>How client data is processed</h2>
+      <p>
+        Client raw data and metadata are processed only as necessary to provide the relevant products or services.
+        Communications and data exchange are handled via Sloths Intel official email addresses only, including (but not limited to)
+        sloth@slothsintel.com, data@slothsintel.com, and visuals@slothsintel.com. The specific email address used depends on
+        the products or services being provided.
+      </p>
+
+      <h2>Third-party services</h2>
+      <p>
+        Messages submitted through our website contact form are processed using a third-party form service 
+        <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree</a> and delivered
+        to our email inbox. We do not sell or share personal data with third parties for marketing purposes.
+      </p>
+
+      <h2>Data retention</h2>
+      <p>
+        We keep personal and business data only for as long as necessary to respond to an enquiry, deliver services,
+        or meet legal, regulatory, or contractual requirements.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>
+        Under UK GDPR and related data protection laws, you have the right to request access, correction, deletion,
+        or restriction of your personal data in certain circumstances.
+        To exercise these rights, please contact
+        <a href="mailto:info@slothsintel.com">info@slothsintel.com</a>.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        Sloths Intel does not use cookies or similar tracking technologies on this website.
+      </p>
+
+      <h2>Changes to this notice</h2>
+      <p>
+        We may update this privacy notice from time to time to reflect changes in our practices or legal obligations.
+        The latest version will always be available on this page.
+      </p>
+
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 2rem;">
+        Last updated: December 2025
+      </p>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("site-footer").innerHTML = html;
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
+</script>
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+  // Close dropdown after selecting a menu item
+  document.querySelectorAll(".nav-dropdown-link").forEach(a => {
+    a.addEventListener("click", () => {
+      const dd = a.closest("details");
+      if (dd) dd.removeAttribute("open");
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll(".nav-dropdown[open]").forEach(dd => {
+      if (!dd.contains(e.target)) dd.removeAttribute("open");
+    });
+  });
+</script>
+</body>
+</html>

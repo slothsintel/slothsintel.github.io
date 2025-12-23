@@ -528,3 +528,61 @@ p {
 }
 
 
+/* =========================================
+   CONTACT FORM
+========================================= */
+
+.contact-form{
+  margin-top: 1.2rem;
+  max-width: 720px;
+}
+
+.contact-form .form-row{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.9rem 0;
+}
+
+.contact-form label{
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-soft, #d9cfc2);
+  border-radius: 12px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+.contact-form textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  border-color: var(--accent-brown, #C07A5A);
+  box-shadow: 0 0 0 3px rgba(192,122,90,0.18);
+}
+
+.contact-form .btn{
+  margin-top: 0.6rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft, #d9cfc2);
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.contact-form .btn:hover{
+  transform: translateY(-1px);
+}

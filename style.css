@@ -664,3 +664,16 @@ p {
 .footer-meta p {
   margin: 0.1rem 0;
 }
+:root{
+  --anchor-offset: 10px; /* set to your sticky header height */
+}
+
+/* Make ALL hash/anchor jumps stop below the sticky header */
+html {
+  scroll-padding-top: var(--anchor-offset);
+}
+
+/* Extra safety: ensures section elements also respect the offset */
+.tab-section {
+  scroll-margin-top: var(--anchor-offset);
+}

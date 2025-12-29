@@ -677,3 +677,7 @@ html {
 .tab-section {
   scroll-margin-top: var(--anchor-offset);
 }
+
+h1, h2, h3 {
+  scroll-margin-top: var(--anchor-offset);
+}

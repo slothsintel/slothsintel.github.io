@@ -6,9 +6,22 @@
 }
 
 /* make anchor jumps stop below the fixed header too */
-html{
-  scroll-padding-top: var(--header-offset);
+/* Use ONE offset system everywhere */
+:root{
+  --header-offset: 108px;
 }
+
+/* mobile header is taller because nav wraps */
+@media (max-width: 520px){
+  :root{
+    --header-offset: 160px; /* try 140–160px */
+  }
+}
+
+/* Make sure all scroll offset uses the same var */
+html{ scroll-padding-top: var(--header-offset); }
+body{ padding-top: var(--header-offset); }
+section, .tab-section, h1, h2, h3{ scroll-margin-top: var(--header-offset); }
 
 /* reserve space so content never sits under the header */
 body{
@@ -61,7 +74,7 @@ html, body{
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.4rem;
+  padding: 0 1.5rem;
 }
 
 /* Header + footer “card” */
@@ -71,7 +84,7 @@ html, body{
   border: 1px solid var(--divider);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  padding: 0.9rem 1.2rem;
+  padding: 0.6rem 0.6rem;
 }
 
 .nav-container{
@@ -114,8 +127,8 @@ html, body{
   align-items: center;
   justify-content: center;
 
-  height: 34px;
-  padding: 0 14px;
+  height: 36px;
+  padding: 0 10px;
 
   border-radius: 9999px;
   border: 1px solid rgba(15,31,23,0.10);
@@ -123,9 +136,9 @@ html, body{
   background: rgba(255,255,255,0.92);
   color: var(--muted);
 
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   font-weight: 550;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   line-height: 1;
 
@@ -145,11 +158,6 @@ html, body{
   border-color: rgba(47,125,99,0.45);
   color: var(--accent);
   background: var(--accent-soft);
-}
-
-/* Sections */
-.tab-section{
-  padding: 3.2rem 0;
 }
 
 /* Layout helpers */
@@ -197,7 +205,7 @@ a:hover{ text-decoration: underline; }
 .divider{
   height: 1px;
   background: var(--divider);
-  margin: 2.2rem 0;
+  margin: 1.6rem 0;
 }
 
 /* Footer */
@@ -354,7 +362,7 @@ a:hover{ text-decoration: underline; }
 .nav-dropdown > summary::after {
   content: "≡";
   margin-left: 0.5rem;
-  font-size: 1.5em;
+  font-size: 1.2em;
   opacity: 0.5;
   letter-spacing: -0.05em;
 }
@@ -366,7 +374,7 @@ a:hover{ text-decoration: underline; }
   top: calc(100% + 10px);
   left: 0;
   min-width: 220px;
-  padding: 0.6rem;
+  padding: 0.5rem;
   border-radius: 14px;
   background: rgba(255,255,255,0.95);
   border: 1px solid var(--divider);
@@ -417,7 +425,7 @@ section,
    Keep text + structure unchanged
 ========================================= */
 
-body.contact-page{
+body.sloths-page{
   /* Earth palette (overrides only on contact page) */
   --bg: #FAF8F4;            /* parchment sand */
   --surface: #FFFFFF;       /* paper */
@@ -430,63 +438,77 @@ body.contact-page{
 }
 
 /* Make the main contact content feel “considered” (a calm reading panel) */
-body.contact-page main .tab-section{
+body.sloths-page main .tab-section{
   padding: 4rem 0; /* slightly slower pacing */
 }
 
-body.contact-page main .tab-section .container{
+body.sloths-page main .tab-section .container{
   /* create a “paper card” without changing HTML structure */
   background: rgba(255,255,255,0.88);
   border: 1px solid var(--divider);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  padding: 2.2rem 1.8rem;
+  padding: 1rem 2rem;
 }
 
 /* Typography tuning: calm authority, better scanning */
-body.contact-page h1{
+body.sloths-page h1{
   font-size: clamp(2.2rem, 4.2vw, 3.1rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-top: 0;
 }
 
-body.contact-page p{
+body.sloths-page p{
   max-width: 70ch;     /* deliberate line length */
   margin: 1.05rem 0;   /* more breathing room */
   color: var(--text);
 }
 
 /* Divider becomes warmer and slightly more present */
-body.contact-page .divider{
+body.sloths-page .divider{
   background: var(--divider);
-  margin: 1.6rem 0 1.8rem;
+  margin: 1rem 0 1.8rem;
   opacity: 0.95;
 }
 
 /* Links: confident, understated */
-body.contact-page a{
+body.sloths-page a{
   color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-body.contact-page a:hover{
+body.sloths-page a:hover{
   text-decoration-thickness: 2px;
 }
 
 /* Mobile: keep it airy, not cramped */
 @media (max-width: 520px){
-  body.contact-page main .tab-section{
-    padding: 3.2rem 0;
+  body.sloths-page main .tab-section{
+    padding: 3rem 0;
   }
-  body.contact-page main .tab-section .container{
-    padding: 1.6rem 1.2rem;
+
+  body.sloths-page main .tab-section:first-of-type{
+    padding-top: 8rem;
   }
-  body.contact-page p{
+
+  body.sloths-page main .tab-section + .tab-section{
+    margin-top: 4rem;
+  }
+
+  body.sloths-page main .tab-section .container{
+    padding: 4rem 2rem;
+  }
+
+  body.sloths-page p{
     max-width: 100%;
   }
 }
+
+
+
+
 
 /* =========================================
    NAVIGATION — remove ALL underlines
@@ -664,9 +686,7 @@ p {
 .footer-meta p {
   margin: 0.1rem 0;
 }
-:root{
-  --anchor-offset: 10px; /* set to your sticky header height */
-}
+
 
 /* Make ALL hash/anchor jumps stop below the sticky header */
 html {
@@ -680,4 +700,60 @@ html {
 
 h1, h2, h3 {
   scroll-margin-top: var(--anchor-offset);
+}
+
+.work-links {
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+/* Make figures and images span full content width */
+figure {
+  margin: 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.profile-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+/* 50% width figure */
+.figure-half {
+  max-width: 50%;
+  margin: 1.5rem auto; /* keeps it centred */
+}
+
+/* Zoom behaviour */
+.zoomable img {
+  width: 100%;
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+/* Click / tap zoom */
+.zoomable img:active {
+  transform: scale(1.5);
+  cursor: zoom-out;
+}
+
+.zoomable img {
+  transition: transform 0.25s ease;
+}
+
+.zoomable img:hover {
+  transform: scale(2);
+}
+
+.tab-section:first-of-type {
+  margin-top: 3rem;
 }

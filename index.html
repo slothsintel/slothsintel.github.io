@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="contact-page">
+<body class="sloths-page">
   <header class="site-header">
     <div class="container nav-container">
       <div class="logo">
@@ -28,7 +28,7 @@
         <details class="nav-dropdown">
           <summary class="nav-link active" href="page">home</summary>
           <div class="nav-dropdown-menu" role="menu" aria-label="Home sections">
-            <a class="nav-dropdown-link" href="index.html#home" role="menuitem">home</a>
+            <a class="nav-dropdown-link" href="index.html#overview" role="menuitem">overview</a>
             <a class="nav-dropdown-link" href="index.html#about" role="menuitem">about</a>
             <a class="nav-dropdown-link" href="index.html#approach" role="menuitem">approach</a>
             <a class="nav-dropdown-link" href="index.html#pricing" role="menuitem">pricing</a>
@@ -53,8 +53,8 @@
   </header>
 
   <main>
-    <!-- HOME -->
-    <section id="home" class="tab-section">
+    <!-- OVERVIEW -->
+    <section id="overview" class="tab-section">
       <div class="container grid-1 center-horizontal center-vertical">
         <div>
           <h1>Home</h1>
@@ -104,13 +104,15 @@
       <div class="container">
         <h1>Approach</h1>
         <div class="divider"></div>
-        <div class="hybrid-diagram">  
-          <img src="assets/hybrid_intel.drawio.svg"/>
-          <p class="diagram-caption">
+
+        <figure class="figure-half zoomable">
+          <img src="assets/home/hybrid_intel.drawio.svg" alt="AutoPred hybrid AI for predictive analytics" loading="lazy" />
+          <figcaption>
             Hybrid intelligence combines massive raw data, machine learning,
-            and human judgement to support real-world decisions.
-          </p>
-        </div>
+              and human judgement to support real-world decisions.
+          </figcaption>
+        </figure>
+
         <div class="spacer-lg"></div>
         <div class="about-quote">
           <p class="quote-lead">
@@ -151,7 +153,7 @@
         </p>
 
         <p>
-          To request a quote, please email <a href="mailto:info@slothsintel.com">info@slothsintel.com</a> with:
+          To request a quote, please fill <a href="contact.html">contact form</a>, or <a href="mailto:info@slothsintel.com">email us</a> with:
           your project description, data sources, constraints, and your expectations.
         </p>
       </div>

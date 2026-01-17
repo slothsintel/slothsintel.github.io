@@ -84,7 +84,7 @@ html, body{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.9rem;
+  gap: 1rem;
 }
 
 /* Logo */
@@ -119,8 +119,8 @@ html, body{
   align-items: center;
   justify-content: center;
 
-  height: 36px;
-  padding: 0 10px;
+  height: 44px;
+  padding: 0 16px;
 
   border-radius: 9999px;
   border: 1px solid rgba(15,31,23,0.10);
@@ -128,8 +128,8 @@ html, body{
   background: rgba(255,255,255,0.92);
   color: var(--muted);
 
-  font-size: 0.68rem;
-  font-weight: 550;
+  font-size: 0.8rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   line-height: 1;
@@ -321,8 +321,8 @@ a:hover{ text-decoration: underline; }
 /* Add a subtle caret, optional */
 .nav-dropdown > summary::after {
   content: "≡";
-  margin-left: 0.5rem;
-  font-size: 1.2em;
+  margin-left: 1rem;
+  font-size: 2em;
   opacity: 0.5;
   letter-spacing: -0.05em;
 }
@@ -766,11 +766,11 @@ figure img {
   }
 
   body.sloths-page main .tab-section + .tab-section{
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 
   body.sloths-page main .tab-section .container{
-    padding: 4rem 2rem;
+    padding: 2rem 1rem;
   }
 
   body.sloths-page p{
@@ -956,6 +956,121 @@ body.nav-open{ overflow: hidden; }
   background: transparent;
 }
 
+/* =========================================
+   MOBILE NAV — match Sloths Intel style
+   (paste at END of style.css)
+========================================= */
+
+.mobile-nav{
+  /* use your site palette */
+  background: rgba(242,247,241,0.96);   /* --bg with translucency */
+  color: var(--text);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* top bar */
+.mobile-nav__brand{
+  color: var(--accent);
+  font-weight: 650;
+}
+.mobile-nav__brand span{
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+/* close button: match nav pills */
+.mobile-nav__close{
+  border: 1px solid rgba(15,31,23,0.14);
+  background: rgba(255,255,255,0.92);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+/* hamburger button: match header card */
+.nav-toggle{
+  border: 1px solid rgba(15,31,23,0.14);
+  background: rgba(255,255,255,0.92);
+  box-shadow: var(--shadow);
+}
+.nav-toggle span{
+  background: var(--muted);
+}
+
+/* menu spacing */
+.mobile-nav__menu{
+  gap: 12px;
+}
+
+/* MAIN section rows (HOME / CAREERS etc.) */
+.mobile-acc > summary{
+  border: 1px solid var(--divider);
+  background: rgba(255,255,255,0.92);
+  color: var(--text);
+
+  font-size: 0.74rem;          /* align with nav pills */
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  box-shadow: var(--shadow);
+}
+
+/* caret */
+.mobile-acc > summary::after{
+  content: "▾";
+  color: var(--muted);
+  opacity: 0.85;
+}
+.mobile-acc[open] > summary::after{
+  content: "▴";
+}
+
+/* SUB-ITEM buttons (Overview / About / etc.) — fix contrast */
+.mobile-acc a{
+  border: 1px solid rgba(15,31,23,0.12);
+  background: rgba(255,255,255,0.80);
+  color: var(--text);
+
+  font-size: 0.88rem;
+  font-weight: 550;
+  letter-spacing: 0.01em;
+  text-transform: none;
+
+  box-shadow: 0 8px 20px rgba(15,31,23,0.06);
+}
+
+/* hover / tap feel */
+.mobile-acc a:hover{
+  border-color: rgba(47,125,99,0.35);
+  background: var(--accent-soft);
+}
+
+/* Optional: active page hint (add .is-active to the current link) */
+.mobile-acc a.is-active{
+  background: var(--accent-soft);
+  border-color: rgba(47,125,99,0.45);
+  color: var(--accent);
+}
+
+/* CTA buttons — match brand */
+.mobile-btn{
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  border-radius: 14px;
+}
+
+.mobile-btn--primary{
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid rgba(15,31,23,0.10);
+}
+
+.mobile-btn--outline{
+  background: rgba(255,255,255,0.92);
+  color: var(--accent);
+  border: 1px solid rgba(47,125,99,0.35);
+}
 
 
 

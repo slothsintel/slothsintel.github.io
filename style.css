@@ -1002,75 +1002,90 @@ body.nav-open{ overflow: hidden; }
   gap: 12px;
 }
 
-/* MAIN section rows (HOME / CAREERS etc.) */
-.mobile-acc > summary{
-  border: 1px solid var(--divider);
-  background: rgba(255,255,255,0.92);
-  color: var(--text);
+/* CTA button — white text */
+.mobile-btn--primary{
+  background: var(--accent);
+  color: #ffffff !important;
+}
 
-  font-size: 0.74rem;          /* align with nav pills */
-  font-weight: 650;
+/* =========================================
+   MOBILE MENU — unified button system
+========================================= */
+
+/* Base button look for ALL menu rows */
+.mobile-acc > summary,
+.mobile-link,
+.mobile-acc > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 18px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.95);
+  border: 1px solid var(--divider);
+  box-shadow: var(--shadow);
+
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 
-  box-shadow: var(--shadow);
+  text-decoration: none;
 }
 
-/* caret */
+/* Remove visual difference between <summary> and <a> */
+.mobile-acc > summary{
+  list-style: none;
+}
+.mobile-acc > summary::-webkit-details-marker{
+  display: none;
+}
+
+/* Chevron ONLY for expandable items */
 .mobile-acc > summary::after{
   content: "▾";
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--muted);
-  opacity: 0.85;
+  margin-left: 10px;
 }
+
+.mobile-acc > summary::after{
+  line-height: 1;
+}
+
 .mobile-acc[open] > summary::after{
   content: "▴";
 }
 
-/* SUB-ITEM buttons (Overview / About / etc.) — fix contrast */
+/* Sub-items — same button style, softer text */
 .mobile-acc a{
-  border: 1px solid rgba(15,31,23,0.12);
-  background: rgba(255,255,255,0.80);
-  color: var(--text);
+  margin-top: 10px;
 
-  font-size: 0.88rem;
-  font-weight: 550;
-  letter-spacing: 0.01em;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   text-transform: none;
 
-  box-shadow: 0 8px 20px rgba(15,31,23,0.06);
+  background: rgba(255,255,255,0.85);
 }
 
-/* hover / tap feel */
-.mobile-acc a:hover{
+/* Hover / tap feedback */
+.mobile-acc > summary:hover,
+.mobile-acc a:hover,
+.mobile-link:hover{
+  background: var(--accent-soft);
   border-color: rgba(47,125,99,0.35);
-  background: var(--accent-soft);
 }
 
-/* Optional: active page hint (add .is-active to the current link) */
-.mobile-acc a.is-active{
-  background: var(--accent-soft);
-  border-color: rgba(47,125,99,0.45);
-  color: var(--accent);
+/* Spacing between top-level items */
+.mobile-nav__menu{
+  gap: 14px;
 }
 
-/* CTA buttons — match brand */
-.mobile-btn{
-  font-size: 0.74rem;
-  letter-spacing: 0.14em;
-  border-radius: 14px;
-}
-
-.mobile-btn--primary{
-  background: var(--accent);
-  color: #fff;
-  border: 1px solid rgba(15,31,23,0.10);
-}
-
-.mobile-btn--outline{
-  background: rgba(255,255,255,0.92);
-  color: var(--accent);
-  border: 1px solid rgba(47,125,99,0.35);
-}
 
 
 

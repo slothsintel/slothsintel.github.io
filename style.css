@@ -963,7 +963,7 @@ body.nav-open{ overflow: hidden; }
 
 .mobile-nav{
   /* use your site palette */
-  background: rgba(242,247,241,0.96);   /* --bg with translucency */
+  background: rgba(242,247,241,0.88);   /* --bg with translucency */
   color: var(--text);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

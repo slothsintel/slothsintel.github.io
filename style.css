@@ -838,10 +838,18 @@ figure img {
   .nav-toggle{ display: inline-flex; }
 }
 
-/* Full-screen overlay */
+/* half-screen overlay */
 .mobile-nav{
   position: fixed;
-  inset: 0;
+  inset: 6% 6%; 
+  max-height: 88vh;      /* prevent overrun */
+  border-radius: 20px;
+
+  background: rgba(242,247,241,0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 24px 60px rgba(15,31,23,0.18);
   z-index: 3000;
   background: #2b2f2d;
   color: #fff;
@@ -925,7 +933,9 @@ body.nav-open{ overflow: hidden; }
 
 /* Bottom CTA buttons */
 .mobile-nav__cta{
-  position: absolute;
+  margin: 1.6rem 0;
+  display: flex;
+  justify-content: center;
   left: 16px;
   right: 16px;
   bottom: 16px;
@@ -1047,7 +1057,7 @@ body.nav-open{ overflow: hidden; }
 /* Chevron ONLY for expandable items */
 .mobile-acc > summary::after{
   content: "▾";
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--muted);
   margin-left: 10px;

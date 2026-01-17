@@ -72,7 +72,7 @@
           </details>
 
           <!-- Products (top-level link; no submenu) -->
-          <a class="mobile-link" href="products.html">Products</a>
+          <a class="mobile-acc" href="products.html">Products</a>
 
           <!-- Careers (expandable) -->
           <details class="mobile-acc">
@@ -146,22 +146,40 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 <script>
-  // Close dropdown after selecting a menu item
-  document.querySelectorAll(".nav-dropdown-link").forEach(a => {
-    a.addEventListener("click", () => {
-      const dd = a.closest("details");
-      if (dd) dd.removeAttribute("open");
-    });
+  const toggle = document.querySelector(".nav-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  const closeBtn = document.querySelector(".mobile-nav__close");
+
+  function openNav(){
+    mobileNav.classList.add("is-open");
+    mobileNav.setAttribute("aria-hidden", "false");
+    toggle?.setAttribute("aria-expanded", "true");
+    document.body.classList.add("nav-open");
+  }
+
+  function closeNav(){
+    mobileNav.classList.remove("is-open");
+    mobileNav.setAttribute("aria-hidden", "true");
+    toggle?.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+  }
+
+  toggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openNav();
   });
 
-  // Close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    document.querySelectorAll(".nav-dropdown[open]").forEach(dd => {
-      if (!dd.contains(e.target)) dd.removeAttribute("open");
-    });
+  closeBtn?.addEventListener("click", closeNav);
+
+  mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") closeNav();
   });
 </script>
+
 
 </body>
 </html>

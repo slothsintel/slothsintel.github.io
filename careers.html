@@ -46,6 +46,15 @@
         <a class="nav-link" href="contact.html">contact</a>
       </nav>
 
+      <!-- Mobile hamburger (mobile only) -->
+      <button class="nav-toggle" type="button"
+              aria-label="Open menu"
+              aria-controls="mobile-nav"
+              aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+
       <!-- Mobile overlay nav -->
       <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
         <div class="mobile-nav__top">
@@ -67,7 +76,7 @@
           <a class="mobile-acc" href="products.html">Products</a>
 
           <!-- Careers (expandable) -->
-          <details class="mobile-link">
+          <details class="mobile-acc">
             <summary>Careers</summary>
             <a href="careers.html#joinus">Join us</a>
             <a href="careers.html#team">Team</a>
@@ -174,21 +183,39 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 <script>
-  // Close dropdown after selecting a menu item
-  document.querySelectorAll(".nav-dropdown-link").forEach(a => {
-    a.addEventListener("click", () => {
-      const dd = a.closest("details");
-      if (dd) dd.removeAttribute("open");
-    });
+  const toggle = document.querySelector(".nav-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  const closeBtn = document.querySelector(".mobile-nav__close");
+
+  function openNav(){
+    mobileNav.classList.add("is-open");
+    mobileNav.setAttribute("aria-hidden", "false");
+    toggle?.setAttribute("aria-expanded", "true");
+    document.body.classList.add("nav-open");
+  }
+
+  function closeNav(){
+    mobileNav.classList.remove("is-open");
+    mobileNav.setAttribute("aria-hidden", "true");
+    toggle?.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+  }
+
+  toggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openNav();
   });
 
-  // Close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    document.querySelectorAll(".nav-dropdown[open]").forEach(dd => {
-      if (!dd.contains(e.target)) dd.removeAttribute("open");
-    });
+  closeBtn?.addEventListener("click", closeNav);
+
+  mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") closeNav();
   });
 </script>
+
 </body>
 </html>

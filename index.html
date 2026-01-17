@@ -49,6 +49,50 @@
         <a class="nav-link" href="contact.html">contact</a>
       </nav>
 
+            <!-- Mobile hamburger (mobile only) -->
+      <button class="nav-toggle" type="button"
+              aria-label="Open menu"
+              aria-controls="mobile-nav"
+              aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Mobile overlay nav -->
+      <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__brand">Sloths <span>Intel</span></div>
+          <button class="mobile-nav__close" type="button" aria-label="Close menu">✕</button>
+        </div>
+
+        <nav class="mobile-nav__menu" aria-label="Mobile navigation">
+          <!-- Home (expandable) -->
+          <details class="mobile-acc">
+            <summary>Home</summary>
+            <a href="index.html#overview">Overview</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#approach">Approach</a>
+            <a href="index.html#pricing">Pricing</a>
+          </details>
+
+          <!-- Products (top-level link; no submenu) -->
+          <a class="mobile-link" href="products.html">Products</a>
+
+          <!-- Careers (expandable) -->
+          <details class="mobile-acc">
+            <summary>Careers</summary>
+            <a href="careers.html#joinus">Join us</a>
+            <a href="careers.html#team">Team</a>
+          </details>
+
+          <!-- Contact (top-level) -->
+          <a class="mobile-link" href="contact.html">Contact</a>
+        </nav>
+
+        <div class="mobile-nav__cta">
+          <a class="mobile-btn mobile-btn--primary" href="contact.html">Let’s chat</a>
+        </div>
+      </div>
+
     </div>
   </header>
 

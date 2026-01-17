@@ -46,8 +46,11 @@
         <a class="nav-link" href="contact.html">contact</a>
       </nav>
 
-      <!-- Mobile hamburger (shows on mobile only) -->
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false">
+      <!-- Mobile hamburger (mobile only) -->
+      <button class="nav-toggle" type="button"
+              aria-label="Open menu"
+              aria-controls="mobile-nav"
+              aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
@@ -59,7 +62,7 @@
         </div>
 
         <nav class="mobile-nav__menu" aria-label="Mobile navigation">
-          <!-- HOME accordion -->
+          <!-- Home (expandable) -->
           <details class="mobile-acc">
             <summary>Home</summary>
             <a href="index.html#overview">Overview</a>
@@ -68,24 +71,25 @@
             <a href="index.html#pricing">Pricing</a>
           </details>
 
-          <!-- Top-level -->
+          <!-- Products (top-level link; no submenu) -->
           <a class="mobile-link" href="products.html">Products</a>
 
-          <!-- CAREERS accordion -->
+          <!-- Careers (expandable) -->
           <details class="mobile-acc">
             <summary>Careers</summary>
             <a href="careers.html#joinus">Join us</a>
             <a href="careers.html#team">Team</a>
           </details>
 
+          <!-- Contact (top-level) -->
           <a class="mobile-link" href="contact.html">Contact</a>
         </nav>
 
-        <!-- Bottom big buttons (like your screenshot) -->
         <div class="mobile-nav__cta">
           <a class="mobile-btn mobile-btn--primary" href="contact.html">Let’s talk</a>
         </div>
       </div>
+
 
   </div>
 </header>
@@ -158,6 +162,35 @@
     document.querySelectorAll(".nav-dropdown[open]").forEach(dd => {
       if (!dd.contains(e.target)) dd.removeAttribute("open");
     });
+  });
+</script>
+
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  const closeBtn = document.querySelector(".mobile-nav__close");
+
+  function openNav(){
+    mobileNav.classList.add("is-open");
+    mobileNav.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.classList.add("nav-open");
+  }
+
+  function closeNav(){
+    mobileNav.classList.remove("is-open");
+    mobileNav.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+  }
+
+  toggle?.addEventListener("click", openNav);
+  closeBtn?.addEventListener("click", closeNav);
+
+  mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") closeNav();
   });
 </script>
 

@@ -956,4 +956,16 @@ body.nav-open{ overflow: hidden; }
   background: transparent;
 }
 
+/* FORCE: show hamburger on mobile, hide desktop nav */
+@media (max-width: 520px){
+  .main-nav{ display: none !important; }
+  .nav-toggle{
+    display: inline-flex !important;
+    position: absolute;
+    right: 0.6rem;
+    top: 0.6rem;
+    z-index: 4000;
+  }
+}
 
+.nav-container{ position: relative; }

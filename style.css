@@ -11,17 +11,9 @@
   --header-offset: 108px;
 }
 
-/* mobile header is taller because nav wraps */
-@media (max-width: 520px){
-  :root{
-    --header-offset: 160px; /* try 140–160px */
-  }
-}
-
 /* Make sure all scroll offset uses the same var */
-html{ scroll-padding-top: var(--header-offset); }
+
 body{ padding-top: var(--header-offset); }
-section, .tab-section, h1, h2, h3{ scroll-margin-top: var(--header-offset); }
 
 /* reserve space so content never sits under the header */
 body{
@@ -208,35 +200,9 @@ a:hover{ text-decoration: underline; }
   margin: 1.6rem 0;
 }
 
-/* Footer */
-.site-footer{
-  background: var(--bg);
-  padding: 1rem 0 1.4rem;
-}
-.footer-grid{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.9rem;
-}
-.footer-links{
-  display: flex;
-  gap: 0.9rem;
-}
-.footer-links a{
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: var(--muted);
-}
-.footer-links a:hover{
-  color: var(--text);
-  text-decoration: underline;
-}
 
 /* Responsive */
-@media (max-width: 799px){
-  .footer-grid{ flex-direction: column; align-items: flex-start; }
-}
+
 
 .sub-divider {
   width: 48px;
@@ -336,13 +302,7 @@ a:hover{ text-decoration: underline; }
   margin: 0;
 }
 
-/* Mobile tuning */
-@media (max-width: 520px) {
-  .hybrid-diagram { margin: 2rem auto 2.4rem; }
-  .diagram-caption { font-size: 0.9rem; text-align: left; }
-  .hybrid-legend { justify-content: flex-start; }
-  .legend-pill { font-size: 0.82rem; }
-}
+
 
 /* Dropdown wrapper */
 .nav-dropdown {
@@ -405,14 +365,7 @@ a:hover{ text-decoration: underline; }
   display: none;
 }
 
-/* Mobile: make dropdown menu full-width-ish and not clipped */
-@media (max-width: 520px) {
-  .nav-dropdown-menu {
-    left: 0;
-    right: auto;
-    min-width: 210px;
-  }
-}
+
 
 /* Prevent fixed nav from covering section headers */
 section,
@@ -483,28 +436,7 @@ body.sloths-page a:hover{
   text-decoration-thickness: 2px;
 }
 
-/* Mobile: keep it airy, not cramped */
-@media (max-width: 520px){
-  body.sloths-page main .tab-section{
-    padding: 3rem 0;
-  }
 
-  body.sloths-page main .tab-section:first-of-type{
-    padding-top: 8rem;
-  }
-
-  body.sloths-page main .tab-section + .tab-section{
-    margin-top: 4rem;
-  }
-
-  body.sloths-page main .tab-section .container{
-    padding: 4rem 2rem;
-  }
-
-  body.sloths-page p{
-    max-width: 100%;
-  }
-}
 
 
 
@@ -683,10 +615,6 @@ p {
   border-color: rgba(47,125,99,0.35);
 }
 
-.footer-meta p {
-  margin: 0.1rem 0;
-}
-
 
 /* Make ALL hash/anchor jumps stop below the sticky header */
 html {
@@ -757,3 +685,278 @@ figure img {
 .tab-section:first-of-type {
   margin-top: 3rem;
 }
+
+/* =========================================
+   FOOTER — tighter spacing, nav-pill scale
+========================================= */
+
+.site-footer {
+  font-size: 0.74rem;      /* align with nav pills */
+  padding: 0.7rem 0 1rem;  /* tighter vertical rhythm */
+}
+
+.site-footer .footer-grid {
+  gap: 0.6rem;             /* reduce vertical & horizontal gaps */
+}
+
+.site-footer .footer-meta p {
+  margin: 0.05rem 0;       /* tighter legal text */
+  line-height: 1.35;
+  font-size: inherit;
+}
+
+.site-footer .footer-links {
+  gap: 0.7rem;             /* closer links, still clickable */
+}
+
+.site-footer .footer-links a {
+  font-size: inherit;
+  line-height: 1.2;
+}
+
+/* Footer */
+
+.footer-grid{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+.footer-links{
+  display: flex;
+  gap: 0.6rem;
+}
+.footer-links a{
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+.footer-links a:hover{
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.footer-meta p {
+  margin: 0.1rem 0;
+}
+
+/* mobile header is taller because nav wraps */
+@media (max-width: 520px){
+  :root{
+    --header-offset: 120px; /* try 140–160px */
+  }
+}
+
+/* Mobile tuning */
+@media (max-width: 520px) {
+  .hybrid-diagram { margin: 2rem auto 2.4rem; }
+  .diagram-caption { font-size: 0.9rem; text-align: left; }
+  .hybrid-legend { justify-content: flex-start; }
+  .legend-pill { font-size: 0.82rem; }
+}
+
+/* Mobile: keep it airy, not cramped */
+@media (max-width: 520px){
+  body.sloths-page main .tab-section{
+    padding: 3rem 0;
+  }
+
+  body.sloths-page main .tab-section:first-of-type{
+    padding-top: 8rem;
+  }
+
+  body.sloths-page main .tab-section + .tab-section{
+    margin-top: 4rem;
+  }
+
+  body.sloths-page main .tab-section .container{
+    padding: 4rem 2rem;
+  }
+
+  body.sloths-page p{
+    max-width: 100%;
+  }
+}
+
+/* Mobile: make dropdown menu full-width-ish and not clipped */
+@media (max-width: 520px) {
+  .nav-dropdown-menu {
+    left: 0;
+    right: auto;
+    min-width: 210px;
+  }
+}
+
+@media (max-width: 799px){
+  .footer-grid{ flex-direction: column; align-items: flex-start; }
+}
+
+/* ================================
+   MOBILE NAV — full-screen overlay
+================================== */
+
+/* Hamburger button (mobile only) */
+.nav-toggle{
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(15,31,23,0.12);
+  background: rgba(255,255,255,0.92);
+  cursor: pointer;
+  position: relative;
+}
+.nav-toggle span{
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  height: 2px;
+  background: var(--muted);
+  border-radius: 2px;
+}
+.nav-toggle span:nth-child(1){ top: 14px; }
+.nav-toggle span:nth-child(2){ top: 21px; }
+.nav-toggle span:nth-child(3){ top: 28px; }
+
+/* Overlay wrapper */
+.mobile-nav{
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: #2b2f2d; /* dark overlay like the example */
+  color: #fff;
+
+  display: none;           /* hidden by default */
+  padding: 16px 16px 18px;
+}
+
+/* Top row */
+.mobile-nav__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.mobile-nav__brand{
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+.mobile-nav__brand span{ opacity: 0.85; }
+.mobile-nav__close{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Menu list */
+.mobile-nav__menu{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* Big tap targets */
+.mobile-link,
+.mobile-acc > summary,
+.mobile-acc a{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 12px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  color: #fff;
+
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+/* subtle separators */
+.mobile-link,
+.mobile-acc > summary{
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+}
+
+/* Accordion */
+.mobile-acc{
+  border-radius: 12px;
+}
+.mobile-acc > summary{
+  list-style: none;
+}
+.mobile-acc > summary::-webkit-details-marker{ display:none; }
+.mobile-acc > summary::after{
+  content: "▾";
+  opacity: 0.8;
+  margin-left: 10px;
+}
+.mobile-acc[open] > summary::after{ content:"▴"; }
+
+.mobile-acc a{
+  margin-top: 8px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.02);
+  opacity: 0.95;
+  text-transform: none;      /* nicer for subitems */
+  letter-spacing: 0.02em;
+  font-weight: 550;
+}
+
+/* Bottom CTA buttons */
+.mobile-nav__cta{
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+
+  display: grid;
+  gap: 10px;
+}
+.mobile-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 54px;
+  border-radius: 12px;
+  text-decoration: none;
+
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+.mobile-btn--primary{
+  background: #c9d43b;   /* “lime/yellow” CTA vibe like the example */
+  color: #1c1a17;
+}
+.mobile-btn--outline{
+  border: 2px solid rgba(255,255,255,0.45);
+  color: #fff;
+  background: transparent;
+}
+
+/* Mobile behavior: hide desktop nav, show hamburger */
+@media (max-width: 520px){
+  .main-nav{ display: none; }
+  .nav-toggle{ display: inline-flex; align-items:center; justify-content:center; }
+}
+
+/* When open */
+.mobile-nav.is-open{ display: block; }
+
+/* Prevent background scroll when menu open */
+body.nav-open{ overflow: hidden; }
+

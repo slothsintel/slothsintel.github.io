@@ -45,6 +45,48 @@
 
         <a class="nav-link" href="contact.html">contact</a>
       </nav>
+
+      <!-- Mobile hamburger (shows on mobile only) -->
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="mobile-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Mobile overlay nav -->
+      <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__brand">Sloths <span>Intel</span></div>
+          <button class="mobile-nav__close" type="button" aria-label="Close menu">✕</button>
+        </div>
+
+        <nav class="mobile-nav__menu" aria-label="Mobile navigation">
+          <!-- HOME accordion -->
+          <details class="mobile-acc">
+            <summary>Home</summary>
+            <a href="index.html#overview">Overview</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#approach">Approach</a>
+            <a href="index.html#pricing">Pricing</a>
+          </details>
+
+          <!-- Top-level -->
+          <a class="mobile-link" href="products.html">Products</a>
+
+          <!-- CAREERS accordion -->
+          <details class="mobile-acc">
+            <summary>Careers</summary>
+            <a href="careers.html#joinus">Join us</a>
+            <a href="careers.html#team">Team</a>
+          </details>
+
+          <a class="mobile-link" href="contact.html">Contact</a>
+        </nav>
+
+        <!-- Bottom big buttons (like your screenshot) -->
+        <div class="mobile-nav__cta">
+          <a class="mobile-btn mobile-btn--primary" href="contact.html">Let’s talk</a>
+        </div>
+      </div>
+
   </div>
 </header>
 
@@ -52,11 +94,27 @@
   <section class="tab-section">
     <div class="container">
       <h1>Products</h1>
+      <p class="quote-body"><em>The products listed below are representative showcases and 
+        can be tailored or extended to meet specific client needs.</em></p>
       <div class="divider"></div>
+
+      <h2>AutoETL</h2>
+      <p><i><b>AutoETL</b></i> (coming soon!) helps small businesses bring scattered data together and get it ready for analysis.</p>
+      <p>It automates data collection, cleaning, and organisation across spreadsheets, tools, and services.</p>
+      <p>The result is clean, usable data without the usual manual effort.</p>
+
+      <div class="sub-divider"></div>
+
+      <h2>AutoPred</h2>
+      <p><i><b>AutoPred</b></i> (coming soon!) enables individuals and small teams make better sense of their data and plan ahead with confidence.</p>
+      <p>It supports forecasting, simple scenario comparisons, and early signals without requiring complex setups.</p>
+      <p>The result is clearer expectations, better decisions, and fewer surprises.</p>
+
+      <div class="sub-divider"></div>
 
       <h2>AutoTrac</h2>
       <a href="https://autotrac.slothsintel.com/"><img class="img" src="assets/products/autotrac.svg", width="180" /></a>  
-      <p><i><b>AutoTrac</b></i> helps freelancers and small teams understand where their time and income actually go.</p>
+      <p><i><b>AutoTrac</b></i> allows freelancers and small teams understand where their time and income actually go.</p>
       <p>It combines simple tracking, lightweight analytics, and clear summaries without forcing rigid workflows.</p>
       <p>The result is better visibility, fairer pricing, and more confident planning.</p>
 
@@ -68,13 +126,6 @@
       <p>It streamlines prompt-to-asset workflows, metadata management, and quality control, reducing manual effort.</p>
       <p>The result is faster production with fewer rejections and a cleaner, repeatable pipeline.</p>
       
-
-      <div class="sub-divider"></div>
-
-      <h2>Custom hybrid AI</h2>
-      <p>We build bespoke AI solutions for organisations with messy, siloed, or incomplete data.</p>
-      <p>We combine modelling, machine learning, domain expertise, and governance to fit real constraints.</p>
-      <p>Clients get decision-ready intelligence that can be explained, trusted, and maintained.</p>
     </div>
   </section>
 </main>

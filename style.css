@@ -1085,6 +1085,13 @@ body.nav-open{ overflow: hidden; }
   border-color: rgba(47,125,99,0.35);
 }
 
+.mobile-nav__privacy-note{
+  margin: 0.8rem 0 0.4rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--muted);
+  opacity: 0.9;
+}
 
 
 

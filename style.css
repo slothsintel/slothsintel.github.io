@@ -484,7 +484,7 @@ figure img{
 
 
 /* =========================================================
-   14) Contact Page Theme (scoped by body.sloths-page)
+   14) Page Theme
    ========================================================= */
 
 body.sloths-page{
@@ -662,9 +662,9 @@ nav a.active{
    18) Mobile
    ========================================================= */
 
-@media (max-width: 520px){
+@media (max-width: 720px){
   :root{
-    --header-offset: 120px;
+    --header-offset: 1px;
   }
 
   /* Hybrid diagram mobile tuning */
@@ -675,16 +675,17 @@ nav a.active{
 
   /* Contact page mobile spacing */
   body.sloths-page main .tab-section{
-    padding: 1rem 0;
+    padding: 2rem 0;
   }
   body.sloths-page main .tab-section:first-of-type{
-    padding-top: 1rem;
+    padding-top: 0.5rem;
+    padding: 4rem 0;
   }
   body.sloths-page main .tab-section + .tab-section{
-    margin-top: 1rem;
+    padding: 4rem 0;
   }
   body.sloths-page main .tab-section .container{
-    padding: 1rem 1rem;
+    padding: 0.5rem 1rem;
   }
   body.sloths-page p{
     max-width: 100%;
@@ -692,16 +693,89 @@ nav a.active{
 
   /* Desktop dropdown menu width tweak (harmless even if desktop nav hidden) */
   .nav-dropdown-menu{
-    left: 0;
-    right: auto;
+    left: auto;
+    right: 0;
     min-width: 210px;
+  }
+
+    /* Headings */
+  h1{
+    font-size: clamp(1rem, 6vw, 1rem);
+    line-height: 1.2;
+  }
+
+  h2{
+    font-size:90.rem;
+    line-height: 1.3;
+  }
+
+  h3{
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  /* Body text */
+  p{
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  /* Lead / hero text */
+  .lead{
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+
+  /* Quote blocks */
+  .quote-lead{
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .quote-body{
+    font-size: 0.9rem;
+  }
+
+  .about-quote{
+    margin: 0.2rem 0 0.2rem 0;
+  }
+
+  .about-quote p{
+    margin: 0.2rem 0 0.2rem 0;
+  }
+
+  .about-quote + .pill{
+    margin-top: 0.2rem;
+  }
+
+  /* Pills / small UI text */
+  .pill,
+  .legend-pill{
+    font-size: 0.7rem;
+  }
+  .about-pill{
+    margin: 0.2rem 0 0.2rem 0;
+  }
+
+  .about-pill p{
+    margin: 0.2rem 0 0.2rem 0;
   }
 }
 
-@media (max-width: 799px){
+
+@media (max-width: 960px){
   .footer-grid{
     flex-direction: column;
     align-items: flex-start;
+  }
+  .site-footer{
+    font-size: 0.6rem;   /* smaller, still readable */
+    line-height: 0.8;
+  }
+
+  .site-footer p,
+  .site-footer a{
+    font-size: inherit;
   }
 }
 
@@ -739,16 +813,19 @@ nav a.active{
 .nav-toggle span:nth-child(3){ top: 28px; }
 
 /* Mobile behaviour: hide desktop nav, show hamburger */
-@media (max-width: 520px){
+@media (max-width: 960px){
   .main-nav{ display: none !important; }
   .nav-toggle{ display: inline-flex; }
 }
 
+
 /* Panel: floating, not full screen */
 .mobile-nav{
   position: fixed;
-  inset: 10% 12%;
-  max-height: 66vh;
+  top: 0%;
+  right: 0%;
+  max-height: 120vh;
+  max-width: 300px;
   overflow-y: auto;
   z-index: 3000;
 
@@ -886,9 +963,9 @@ body.nav-open{ overflow: hidden; }
 
 /* Privacy note inside panel */
 .mobile-nav__privacy-note{
-  margin: 0.8rem 0 0.4rem;
-  font-size: 0.7rem;
-  line-height: 1.4;
+  margin: 0.1rem 0 0.1rem;
+  font-size: 0.6rem;
+  line-height: 1;
   color: var(--muted);
   opacity: 0.9;
 }
@@ -906,14 +983,14 @@ body.nav-open{ overflow: hidden; }
   align-items: center;
   justify-content: center;
 
-  height: 54px;
+  height: 48px;
   border-radius: 18px;
   text-decoration: none;
 
-  font-weight: 750;
-  letter-spacing: 0.14em;
+  font-weight: 450;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-size: 0.82rem;
+  font-size: 0.6rem;
 }
 
 .mobile-btn--primary{
@@ -921,9 +998,9 @@ body.nav-open{ overflow: hidden; }
   height: auto;
   padding: 16px 28px;
 
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
 
   background: var(--accent);
   color: #ffffff !important;

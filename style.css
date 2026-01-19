@@ -1,58 +1,34 @@
+/* =========================================================
+   Sloths Intel — style.css (tidied + deduplicated)
+   0) Reset + Variables
+   ========================================================= */
+
 *, *::before, *::after { box-sizing: border-box; }
 
 :root{
-  /* ...keep your existing vars... */
-  --header-offset: 108px; /* header total height (tweak to 96/112 if needed) */
-}
+  /* Header offset for fixed header (desktop default) */
+  --header-offset: 10px;
 
-/* make anchor jumps stop below the fixed header too */
-/* Use ONE offset system everywhere */
-:root{
-  --header-offset: 108px;
-}
-
-/* Make sure all scroll offset uses the same var */
-
-body{ padding-top: var(--header-offset); }
-
-/* reserve space so content never sits under the header */
-body{
-  padding-top: var(--header-offset);
-}
-
-/* keep header pinned */
-.site-header{
-  position: fixed;  /* if you already use fixed, keep it; if sticky wasn't working, fixed will */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: var(--bg);
-}
-
-/* optional: prevent any width “jump” due to fixed positioning */
-.site-header .container{
-  width: 100%;
-}
-
-
-
-/* Softer, more “creamy green” palette */
-:root{
-  --bg: #f2f7f1;           /* calmer creamy green */
+  /* Softer, more “creamy green” palette */
+  --bg: #f2f7f1;
   --surface: #ffffff;
   --text: #0f1f17;
-  --muted: #40554b;        /* softer muted text */
-  --accent: #2f7d63;       /* confident, not neon */
-  --accent-soft: #e2f0ea;  /* soft highlight */
+  --muted: #40554b;
+  --accent: #2f7d63;
+  --accent-soft: #e2f0ea;
   --divider: #d6e2da;
-  --radius-lg: 1rem;
+  --radius-lg: 1.2rem;
   --shadow: 0 8px 24px rgba(15,31,23,0.08);
 }
 
+
+/* =========================================================
+   1) Base Page Layout
+   ========================================================= */
+
 html, body{
   margin: 0;
-  padding: 0;              /* FIX: was “padding: 20;” (no unit) */
+  padding: 0;
   min-height: 100%;
   overflow-x: hidden;
   font-family: "Space Grotesk", system-ui, sans-serif;
@@ -61,22 +37,50 @@ html, body{
   background: var(--bg);
 }
 
+/* Reserve space so content never sits under the fixed header */
+body{
+  padding-top: var(--header-offset);
+}
+
 /* Containers */
 .container{
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 }
 
-/* Header + footer “card” */
+
+/* =========================================================
+   2) Header (Fixed)
+   ========================================================= */
+
+.site-header{
+  position: fixed;
+  top: 2;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--bg);
+}
+
+.site-header .container{
+  width: 100%;
+}
+
+
+/* =========================================================
+   3) Header “Card” + Footer “Card”
+   - Shared “card” visual style.
+   ========================================================= */
+
 .nav-container,
 .site-footer .footer-grid{
   background: rgba(255,255,255,0.90);
   border: 1px solid var(--divider);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  padding: 0.6rem 0.6rem;
+  padding: 0.6rem 1.6rem;
 }
 
 .nav-container{
@@ -85,9 +89,14 @@ html, body{
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  position: relative; /* anchor for mobile hamburger positioning */
 }
 
-/* Logo */
+
+/* =========================================================
+   4) Logo
+   ========================================================= */
+
 .logo{
   display: flex;
   align-items: center;
@@ -101,13 +110,18 @@ html, body{
 .logo-text{
   font-weight: 650;
   letter-spacing: 0.01em;
-  color: var(--accent);    /* your request: just change colour */
+  color: var(--accent);
 }
 .logo-text span{
-  color: inherit;          /* make “Intel” same as “Sloths” */
+  color: inherit;
 }
 
-/* NAV – calmer, more premium pills */
+
+/* =========================================================
+   5) Desktop Navigation Pills
+   - Premium pill buttons.
+   ========================================================= */
+
 .main-nav{
   display: flex;
   flex-wrap: wrap;
@@ -128,7 +142,7 @@ html, body{
   background: rgba(255,255,255,0.92);
   color: var(--muted);
 
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -141,23 +155,85 @@ html, body{
 
 .nav-link:hover{
   color: var(--text);
-  border-color: rgba(47,125,99,0.35);
+  border-color: rgba(15, 39, 31, 0.35);
 }
 
 /* Active: subtle, not neon */
 .nav-link.active,
 .nav-link[aria-current="page"]{
-  border-color: rgba(47,125,99,0.45);
+  border-color: rgba(15, 44, 35, 0.45);
   color: var(--accent);
   background: var(--accent-soft);
 }
 
-/* Layout helpers */
-.grid-1{ display: grid; }
-.center-horizontal{ justify-items: start; }
-.center-vertical{ align-items: center; min-height: 56vh; }
 
-/* Typography */
+/* =========================================================
+   6) Desktop Dropdown (details/summary)
+   - Dropdown caret uses “≡” as you currently have; keep or change later.
+   - Menu is a small card.
+   ========================================================= */
+
+.nav-dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown > summary{
+  list-style: none;
+}
+.nav-dropdown > summary::-webkit-details-marker{
+  display: none;
+}
+
+/* Caret / icon */
+.nav-dropdown > summary::after{
+  content: "≡";
+  margin-left: 1rem;
+  font-size: 2em;
+  opacity: 0.5;
+  letter-spacing: -0.05em;
+}
+
+.nav-dropdown-menu{
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  padding: 0.5rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid var(--divider);
+  box-shadow: 0 12px 28px rgba(4, 8, 6, 0.12);
+  z-index: 2000;
+}
+
+.nav-dropdown-link{
+  display: block;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.nav-dropdown-link:hover{
+  background: rgba(47,125,99,0.10);
+  color: var(--text);
+}
+
+.nav-dropdown:not([open]) .nav-dropdown-menu{
+  display: none;
+}
+
+
+/* =========================================================
+   7) Typography
+   - Removed global “p { max-width: 100% !important; }” which broke layouts.
+   - Keep normal paragraph rhythm.
+   ========================================================= */
+
 h1, h2, h3{
   color: var(--text);
   margin: 0.5rem 0;
@@ -193,18 +269,18 @@ a:hover{ text-decoration: underline; }
   background: rgba(255,255,255,0.92);
 }
 
-/* Divider */
+
+/* =========================================================
+   8) Dividers + Spacers
+   ========================================================= */
+
 .divider{
   height: 1px;
   background: var(--divider);
   margin: 1.6rem 0;
 }
 
-
-/* Responsive */
-
-
-.sub-divider {
+.sub-divider{
   width: 48px;
   height: 1px;
   background: var(--divider);
@@ -212,14 +288,23 @@ a:hover{ text-decoration: underline; }
   opacity: 0.7;
 }
 
-.about-quote {
+.spacer-lg{ height: 2.4rem; }
+.spacer-xl{ height: 3.2rem; }
+
+
+/* =========================================================
+   9) About Quote Block (merged)
+   ========================================================= */
+
+.about-quote{
   max-width: 720px;
   margin: 3rem 0 3.5rem;
+  margin-left: 1.5rem;
   padding-left: 1.2rem;
   border-left: 2px solid var(--divider);
 }
 
-.quote-lead {
+.quote-lead{
   font-size: 1.35rem;
   font-weight: 500;
   line-height: 1.4;
@@ -227,52 +312,54 @@ a:hover{ text-decoration: underline; }
   color: var(--text);
 }
 
-.quote-body {
+.quote-body{
   font-size: 1.05rem;
   line-height: 1.7;
   margin: 0;
   color: var(--muted);
 }
 
-.spacer-lg {
-  height: 2.4rem;
-}
-
-.spacer-xl {
-  height: 3.2rem;
-}
-
-.emphasis {
+.emphasis{
   font-weight: 500;
   color: var(--text);
 }
 
-.about-quote {
-  margin-left: 1.5rem;
-}
 
-.hybrid-diagram {
+/* =========================================================
+   10) Hybrid Diagram
+   ========================================================= */
+
+.hybrid-diagram{
+  display: block;
+  text-align: center;
   max-width: 680px;
   margin: 2.4rem auto 3rem;
   color: var(--muted);
 }
 
-.hybrid-diagram svg {
+.hybrid-diagram svg{
   display: block;
   width: 100%;
   height: auto;
   margin: 0 auto 1rem;
 }
 
+.hybrid-diagram img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 /* SVG text via class so we can size it responsively */
-.hybrid-center {
+.hybrid-center{
   font-size: 14px;
   font-weight: 500;
   fill: currentColor;
 }
 
 /* Legend: responsive pills */
-.hybrid-legend {
+.hybrid-legend{
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -280,7 +367,7 @@ a:hover{ text-decoration: underline; }
   margin: 0.6rem 0 0.9rem;
 }
 
-.legend-pill {
+.legend-pill{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -294,7 +381,7 @@ a:hover{ text-decoration: underline; }
   white-space: nowrap;
 }
 
-.diagram-caption {
+.diagram-caption{
   font-size: 0.95rem;
   line-height: 1.6;
   text-align: center;
@@ -303,100 +390,126 @@ a:hover{ text-decoration: underline; }
 }
 
 
+/* =========================================================
+   11) Anchor/Scroll Offset (single system)
+   ========================================================= */
 
-/* Dropdown wrapper */
-.nav-dropdown {
-  position: relative;
-  display: inline-block;
+html{
+  scroll-padding-top: var(--header-offset);
 }
 
-/* Remove default marker and make summary behave like a nav pill */
-.nav-dropdown > summary {
-  list-style: none;
-}
-.nav-dropdown > summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Add a subtle caret, optional */
-.nav-dropdown > summary::after {
-  content: "≡";
-  margin-left: 1rem;
-  font-size: 2em;
-  opacity: 0.5;
-  letter-spacing: -0.05em;
-}
-
-
-/* Dropdown menu */
-.nav-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  min-width: 220px;
-  padding: 0.5rem;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.95);
-  border: 1px solid var(--divider);
-  box-shadow: 0 12px 28px rgba(15,31,23,0.12);
-  z-index: 2000;
-}
-
-/* Menu links */
-.nav-dropdown-link {
-  display: block;
-  padding: 0.55rem 0.75rem;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--muted);
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.nav-dropdown-link:hover {
-  background: rgba(47,125,99,0.10);
-  color: var(--text);
-}
-
-/* Close menu when not open */
-.nav-dropdown:not([open]) .nav-dropdown-menu {
-  display: none;
-}
-
-
-
-/* Prevent fixed nav from covering section headers */
 section,
-.tab-section {
+.tab-section,
+h1, h2, h3{
   scroll-margin-top: var(--header-offset);
 }
 
-/* =========================================
-   CONTACT PAGE — Jungle/Earth theme (scoped)
-   Keep text + structure unchanged
-========================================= */
+
+/* =========================================================
+   12) Figures / Images / Zoom
+   - Kept your figure sizing + zoom behaviour.
+   ========================================================= */
+
+figure{ margin: 0; }
+
+figure img{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.figure-half{
+  max-width: 50%;
+  margin: 1.5rem auto;
+}
+
+.zoomable img{
+  width: 100%;
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+.zoomable img:hover{
+  transform: scale(2);
+}
+
+.zoomable img:active{
+  transform: scale(1.5);
+  cursor: zoom-out;
+}
+
+
+/* =========================================================
+   13) Footer
+   ========================================================= */
+
+.site-footer{
+  font-size: 0.74rem;      /* align with nav pills */
+  padding: 0.7rem 0 1rem;  /* tighter vertical rhythm */
+}
+
+.footer-grid{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.site-footer .footer-grid{
+  gap: 0.6rem;
+}
+
+.footer-meta p{
+  margin: 0.05rem 0;
+  line-height: 1.35;
+  font-size: inherit;
+}
+
+.footer-links{
+  display: flex;
+  gap: 0.7rem;
+}
+
+.footer-links a{
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: var(--muted);
+  line-height: 1.2;
+}
+.footer-links a:hover{
+  color: var(--text);
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   14) Contact Page Theme (scoped by body.sloths-page)
+   ========================================================= */
 
 body.sloths-page{
-  /* Earth palette (overrides only on contact page) */
-  --bg: #FAF8F4;            /* parchment sand */
-  --surface: #FFFFFF;       /* paper */
-  --text: #1C1A17;          /* charcoal bark */
-  --muted: #6E665E;         /* dry wood */
-  --divider: #D9CFC2;       /* warm divider */
-  --accent: #2F4A3C;        /* deep forest */
-  --accent-soft: #EFE8DF;   /* soft clay */
+  --bg: #FAF8F4;
+  --surface: #FFFFFF;
+  --text: #1C1A17;
+  --muted: #6E665E;
+  --divider: #D9CFC2;
+  --accent: #2F4A3C;
+  --accent-soft: #EFE8DF;
   --shadow: 0 10px 28px rgba(28,26,23,0.10);
 }
 
-/* Make the main contact content feel “considered” (a calm reading panel) */
+/* top spacing rule  */
+body.sloths-page .tab-section:first-of-type{
+  margin-top: 0.5rem;
+  padding: 4rem 0;
+}
+
+/* sloths page main panel */
 body.sloths-page main .tab-section{
-  padding: 4rem 0; /* slightly slower pacing */
+  padding: 4rem 0;
 }
 
 body.sloths-page main .tab-section .container{
-  /* create a “paper card” without changing HTML structure */
   background: rgba(255,255,255,0.88);
   border: 1px solid var(--divider);
   border-radius: var(--radius-lg);
@@ -404,7 +517,9 @@ body.sloths-page main .tab-section .container{
   padding: 1rem 2rem;
 }
 
-/* Typography tuning: calm authority, better scanning */
+
+
+/* Contact typography */
 body.sloths-page h1{
   font-size: clamp(2.2rem, 4.2vw, 3.1rem);
   font-weight: 600;
@@ -413,19 +528,17 @@ body.sloths-page h1{
 }
 
 body.sloths-page p{
-  max-width: 70ch;     /* deliberate line length */
-  margin: 1.05rem 0;   /* more breathing room */
+  max-width: none;
+  margin: 1.05rem 0;
   color: var(--text);
 }
 
-/* Divider becomes warmer and slightly more present */
 body.sloths-page .divider{
   background: var(--divider);
   margin: 1rem 0 1.8rem;
   opacity: 0.95;
 }
 
-/* Links: confident, understated */
 body.sloths-page a{
   color: var(--accent);
   text-decoration: underline;
@@ -437,113 +550,9 @@ body.sloths-page a:hover{
 }
 
 
-
-
-
-
-
-/* =========================================
-   NAVIGATION — remove ALL underlines
-========================================= */
-
-nav a,
-nav a:hover,
-nav a:focus,
-nav a:active,
-nav a.active {
-  text-decoration: none !important;
-}
-
-/* =========================================
-   APPROACH — center hybrid intelligence SVG
-========================================= */
-
-.hybrid-diagram {
-  display: block;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hybrid-diagram img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-
-/* =========================================
-   FIX: About section paragraph full width
-   (no text or style changes)
-========================================= */
-
-p {
-  max-width: 100% !important;
-}
-
-
-/* =========================================
-   CONTACT FORM
-========================================= */
-
-.contact-form{
-  margin-top: 1.2rem;
-  max-width: 720px;
-}
-
-.contact-form .form-row{
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin: 0.9rem 0;
-}
-
-.contact-form label{
-  font-weight: 500;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea{
-  width: 100%;
-  padding: 0.75rem 0.9rem;
-  border: 1px solid var(--border-soft, #d9cfc2);
-  border-radius: 12px;
-  background: #fff;
-  color: inherit;
-  font: inherit;
-  outline: none;
-}
-
-.contact-form textarea{
-  resize: vertical;
-  min-height: 140px;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus{
-  border-color: var(--accent-brown, #C07A5A);
-  box-shadow: 0 0 0 3px rgba(192,122,90,0.18);
-}
-
-.contact-form .btn{
-  margin-top: 0.6rem;
-  padding: 0.75rem 1.1rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-soft, #d9cfc2);
-  background: #fff;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.contact-form .btn:hover{
-  transform: translateY(-1px);
-}
-
-/* =========================================
-   CONTACT FORM — consistent alignment on web
-========================================= */
+/* =========================================================
+   15) Contact Form 
+   ========================================================= */
 
 .contact-form{
   margin-top: 1.2rem;
@@ -575,7 +584,6 @@ p {
   line-height: 1.4;
   outline: none;
 
-  /* Key: makes sizing consistent across browsers */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -613,41 +621,33 @@ p {
 .contact-form button:hover{
   color: var(--text);
   border-color: rgba(47,125,99,0.35);
+  transform: translateY(-1px);
 }
 
 
-/* Make ALL hash/anchor jumps stop below the sticky header */
-html {
-  scroll-padding-top: var(--anchor-offset);
+/* =========================================================
+   16) NAV
+   ========================================================= */
+
+nav a,
+nav a:hover,
+nav a:focus,
+nav a:active,
+nav a.active{
+  text-decoration: none !important;
 }
 
-/* Extra safety: ensures section elements also respect the offset */
-.tab-section {
-  scroll-margin-top: var(--anchor-offset);
-}
 
-h1, h2, h3 {
-  scroll-margin-top: var(--anchor-offset);
-}
+/* =========================================================
+   17) Small helpers
+   ========================================================= */
 
-.work-links {
+.work-links{
   font-size: 0.9em;
   opacity: 0.85;
 }
 
-/* Make figures and images span full content width */
-figure {
-  margin: 0;
-}
-
-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-}
-
-.profile-link {
+.profile-link{
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -655,132 +655,43 @@ figure img {
   text-decoration: none;
 }
 
-/* 50% width figure */
-.figure-half {
-  max-width: 50%;
-  margin: 1.5rem auto; /* keeps it centred */
-}
 
-/* Zoom behaviour */
-.zoomable img {
-  width: 100%;
-  cursor: zoom-in;
-  transition: transform 0.25s ease;
-}
 
-/* Click / tap zoom */
-.zoomable img:active {
-  transform: scale(1.5);
-  cursor: zoom-out;
-}
 
-.zoomable img {
-  transition: transform 0.25s ease;
-}
+/* =========================================================
+   18) Mobile
+   ========================================================= */
 
-.zoomable img:hover {
-  transform: scale(2);
-}
-
-.tab-section:first-of-type {
-  margin-top: 3rem;
-}
-
-/* =========================================
-   FOOTER — tighter spacing, nav-pill scale
-========================================= */
-
-.site-footer {
-  font-size: 0.74rem;      /* align with nav pills */
-  padding: 0.7rem 0 1rem;  /* tighter vertical rhythm */
-}
-
-.site-footer .footer-grid {
-  gap: 0.6rem;             /* reduce vertical & horizontal gaps */
-}
-
-.site-footer .footer-meta p {
-  margin: 0.05rem 0;       /* tighter legal text */
-  line-height: 1.35;
-  font-size: inherit;
-}
-
-.site-footer .footer-links {
-  gap: 0.7rem;             /* closer links, still clickable */
-}
-
-.site-footer .footer-links a {
-  font-size: inherit;
-  line-height: 1.2;
-}
-
-/* Footer */
-
-.footer-grid{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.6rem;
-}
-.footer-links{
-  display: flex;
-  gap: 0.6rem;
-}
-.footer-links a{
-  font-size: 0.75rem;
-  text-decoration: none;
-  color: var(--muted);
-}
-.footer-links a:hover{
-  color: var(--text);
-  text-decoration: underline;
-}
-
-.footer-meta p {
-  margin: 0.1rem 0;
-}
-
-/* mobile header is taller because nav wraps */
 @media (max-width: 520px){
   :root{
-    --header-offset: 120px; /* try 140–160px */
+    --header-offset: 120px;
   }
-}
 
-/* Mobile tuning */
-@media (max-width: 520px) {
-  .hybrid-diagram { margin: 2rem auto 2.4rem; }
-  .diagram-caption { font-size: 0.9rem; text-align: left; }
-  .hybrid-legend { justify-content: flex-start; }
-  .legend-pill { font-size: 0.82rem; }
-}
+  /* Hybrid diagram mobile tuning */
+  .hybrid-diagram{ margin: 2rem auto 2.4rem; }
+  .diagram-caption{ font-size: 0.9rem; text-align: left; }
+  .hybrid-legend{ justify-content: flex-start; }
+  .legend-pill{ font-size: 0.82rem; }
 
-/* Mobile: keep it airy, not cramped */
-@media (max-width: 520px){
+  /* Contact page mobile spacing */
   body.sloths-page main .tab-section{
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
-
   body.sloths-page main .tab-section:first-of-type{
-    padding-top: 5rem;
+    padding-top: 1rem;
   }
-
   body.sloths-page main .tab-section + .tab-section{
-    margin-top: 1.2rem;
+    margin-top: 1rem;
   }
-
   body.sloths-page main .tab-section .container{
-    padding: 1.6rem 1rem;
+    padding: 1rem 1rem;
   }
-
   body.sloths-page p{
     max-width: 100%;
   }
-}
 
-/* Mobile: make dropdown menu full-width-ish and not clipped */
-@media (max-width: 520px) {
-  .nav-dropdown-menu {
+  /* Desktop dropdown menu width tweak (harmless even if desktop nav hidden) */
+  .nav-dropdown-menu{
     left: 0;
     right: auto;
     min-width: 210px;
@@ -788,33 +699,28 @@ figure img {
 }
 
 @media (max-width: 799px){
-  .footer-grid{ flex-direction: column; align-items: flex-start; }
+  .footer-grid{
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
-/* ================================
-   MOBILE NAV — full-screen overlay
-================================== */
 
-/* ================================
-   MOBILE NAV — hamburger only
-================================== */
+/* =========================================================
+   19) Mobile Navigation — Hamburger + Panel
+   ========================================================= */
 
-/* Make nav-container a positioning context */
-.nav-container{
-  position: relative;
-}
-
-/* Hamburger (hidden on desktop) */
+/* Hamburger button (mobile only) */
 .nav-toggle{
   display: none;
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  border: 1px solid rgba(15,31,23,0.12);
+  border: 1px solid rgba(15,31,23,0.14);
   background: rgba(255,255,255,0.92);
+  box-shadow: var(--shadow);
   cursor: pointer;
 
-  /* top-right placement */
   position: absolute;
   right: 0.6rem;
   top: 0.6rem;
@@ -832,15 +738,36 @@ figure img {
 .nav-toggle span:nth-child(2){ top: 21px; }
 .nav-toggle span:nth-child(3){ top: 28px; }
 
-/* On mobile: hide desktop nav, show hamburger */
+/* Mobile behaviour: hide desktop nav, show hamburger */
 @media (max-width: 520px){
   .main-nav{ display: none !important; }
   .nav-toggle{ display: inline-flex; }
 }
 
+/* Panel: floating, not full screen */
+.mobile-nav{
+  position: fixed;
+  inset: 10% 12%;
+  max-height: 66vh;
+  overflow-y: auto;
+  z-index: 3000;
+
+  display: none;
+  padding: 16px 16px 18px;
+
+  background: rgba(242,247,241,0.85);
+  color: var(--text);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(15,31,23,0.18);
+}
+
 .mobile-nav.is-open{ display: block; }
 body.nav-open{ overflow: hidden; }
 
+/* Panel top row */
 .mobile-nav__top{
   display: flex;
   align-items: center;
@@ -850,23 +777,28 @@ body.nav-open{ overflow: hidden; }
 }
 
 .mobile-nav__brand{
+  color: var(--accent);
   font-weight: 650;
   letter-spacing: 0.02em;
 }
-.mobile-nav__brand span{ opacity: 0.85; }
+.mobile-nav__brand span{
+  color: var(--accent);
+  opacity: 0.9;
+}
 
 .mobile-nav__close{
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: transparent;
-  color: #fff;
+  border: 1px solid rgba(15,31,23,0.14);
+  background: rgba(255,255,255,0.92);
+  color: var(--text);
+  box-shadow: var(--shadow);
   font-size: 20px;
   cursor: pointer;
 }
 
-/* Menu */
+/* Menu container */
 .mobile-nav__menu{
   display: flex;
   flex-direction: column;
@@ -874,152 +806,12 @@ body.nav-open{ overflow: hidden; }
   margin-top: 8px;
 }
 
-/* Accordion sections (clickable headings + breakdown list) */
+/* Unified button system (top-level + links)
+   - Top-level expandable items are <summary>
+   - Non-expandable items should use .mobile-link
+*/
 .mobile-acc > summary,
-.mobile-acc a{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 12px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.82rem;
-}
-
-.mobile-acc > summary{
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.04);
-  list-style: none;
-}
-.mobile-acc > summary::-webkit-details-marker{ display:none; }
-.mobile-acc > summary::after{
-  content: "▾";
-  opacity: 0.85;
-  margin-left: 10px;
-}
-.mobile-acc[open] > summary::after{ content:"▴"; }
-
-.mobile-acc a{
-  margin-top: 8px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.02);
-  text-transform: none;
-  letter-spacing: 0.02em;
-  font-weight: 550;
-}
-
-/* Bottom CTA buttons */
-.mobile-nav__cta{
-  margin: 2rem 0 1.2rem;
-  display: flex;
-  justify-content: center;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  display: grid;
-  gap: 10px;
-}
-
-.mobile-btn{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 54px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 750;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 0.82rem;
-}
-
-.mobile-btn--outline{
-  border: 2px solid rgba(255,255,255,0.45);
-  color: #fff;
-  background: transparent;
-}
-
-.mobile-nav{
-  /* use your site palette */
-  background: rgba(242,247,241,0.85);   /* --bg with translucency */
-  color: var(--text);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  position: fixed;
-  inset: 10% 12%; 
-  max-height: 66vh;      /* prevent overrun */
-  border-radius: 22px;
-  overflow-y: auto;
-
-  -webkit-backdrop-filter: blur(10px);
-
-  box-shadow: 0 24px 60px rgba(15,31,23,0.18);
-  z-index: 3000;
-  display: none;
-  padding: 16px 16px 18px;
-}
-
-/* top bar */
-.mobile-nav__brand{
-  color: var(--accent);
-  font-weight: 650;
-}
-.mobile-nav__brand span{
-  color: var(--accent);
-  opacity: 0.9;
-}
-
-/* close button: match nav pills */
-.mobile-nav__close{
-  border: 1px solid rgba(15,31,23,0.14);
-  background: rgba(255,255,255,0.92);
-  color: var(--text);
-  box-shadow: var(--shadow);
-}
-
-/* hamburger button: match header card */
-.nav-toggle{
-  border: 1px solid rgba(15,31,23,0.14);
-  background: rgba(255,255,255,0.92);
-  box-shadow: var(--shadow);
-}
-.nav-toggle span{
-  background: var(--muted);
-}
-
-
-/* CTA button — white text */
-.mobile-btn--primary{
-  min-width: 78%;
-  height: auto;
-
-  padding: 16px 28px;    /* THIS adds visible gap between text & border */
-
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-
-  border-radius: 18px;
-
-  background: var(--accent);
-  color: #ffffff !important;
-
-  box-shadow: 0 12px 28px rgba(15,31,23,0.22);
-}
-
-
-/* =========================================
-   MOBILE MENU — unified button system
-========================================= */
-
-/* Base button look for ALL menu rows */
-.mobile-acc > summary,
-.mobile-link,
-.mobile-acc > a {
+.mobile-link{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1040,7 +832,7 @@ body.nav-open{ overflow: hidden; }
   text-decoration: none;
 }
 
-/* Remove visual difference between <summary> and <a> */
+/* Summary: hide default marker */
 .mobile-acc > summary{
   list-style: none;
 }
@@ -1048,33 +840,40 @@ body.nav-open{ overflow: hidden; }
   display: none;
 }
 
-/* Chevron ONLY for expandable items */
+/* Chevron only for expandable items */
 .mobile-acc > summary::after{
   content: "▾";
-  font-size: 1.5rem;
+  font-size: 1.5rem;   /* arrow size */
   font-weight: 700;
+  line-height: 1;
   color: var(--muted);
   margin-left: 10px;
 }
-
-.mobile-acc > summary::after{
-  line-height: 1;
-}
-
 .mobile-acc[open] > summary::after{
   content: "▴";
 }
 
-/* Sub-items — same button style, softer text */
+/* Sub-items inside open accordion */
 .mobile-acc a{
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  margin-top: 10px;
+  padding: 16px 18px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(15,31,23,0.12);
+  box-shadow: 0 8px 20px rgba(15,31,23,0.06);
+
+  color: var(--text);
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: none;
 
-  background: rgba(255,255,255,0.85);
+  text-decoration: none;
 }
 
 /* Hover / tap feedback */
@@ -1085,6 +884,7 @@ body.nav-open{ overflow: hidden; }
   border-color: rgba(47,125,99,0.35);
 }
 
+/* Privacy note inside panel */
 .mobile-nav__privacy-note{
   margin: 0.8rem 0 0.4rem;
   font-size: 0.7rem;
@@ -1093,7 +893,56 @@ body.nav-open{ overflow: hidden; }
   opacity: 0.9;
 }
 
+/* CTA (kept centered, not pinned) */
+.mobile-nav__cta{
+  margin: 2rem 0 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* CTA buttons */
+.mobile-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 54px;
+  border-radius: 18px;
+  text-decoration: none;
+
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+.mobile-btn--primary{
+  min-width: 78%;
+  height: auto;
+  padding: 16px 28px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+
+  background: var(--accent);
+  color: #ffffff !important;
+
+  box-shadow: 0 12px 28px rgba(15,31,23,0.22);
+}
+
+/* Optional outline style if you use a second CTA */
+.mobile-btn--outline{
+  min-width: 78%;
+  height: auto;
+  padding: 16px 28px;
+
+  background: rgba(255,255,255,0.92);
+  color: var(--accent);
+  border: 1px solid rgba(47,125,99,0.35);
+}
 
 
-
-
+/* =========================================================
+   END
+   ========================================================= */

@@ -758,19 +758,19 @@ figure img {
 /* Mobile: keep it airy, not cramped */
 @media (max-width: 520px){
   body.sloths-page main .tab-section{
-    padding: 3rem 0;
+    padding: 2rem 0;
   }
 
   body.sloths-page main .tab-section:first-of-type{
-    padding-top: 8rem;
+    padding-top: 5rem;
   }
 
   body.sloths-page main .tab-section + .tab-section{
-    margin-top: 2rem;
+    margin-top: 1.2rem;
   }
 
   body.sloths-page main .tab-section .container{
-    padding: 2rem 1rem;
+    padding: 1.6rem 1rem;
   }
 
   body.sloths-page p{

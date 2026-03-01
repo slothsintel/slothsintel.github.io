@@ -504,6 +504,10 @@ body.sloths-page .tab-section:first-of-type{
   padding: 4rem 0;
 }
 
+body.sloths-page main .tab-section + .tab-section{
+  margin-top: -4rem;
+}
+
 /* sloths page main panel */
 body.sloths-page main .tab-section{
   padding: 4rem 0;
@@ -674,16 +678,17 @@ nav a.active{
   .legend-pill{ font-size: 0.82rem; }
 
   /* Contact page mobile spacing */
-  body.sloths-page main .tab-section{
-    padding: 2rem 0;
-  }
+
   body.sloths-page main .tab-section:first-of-type{
-    padding-top: 0.5rem;
+    padding-top: 4rem;
     padding: 4rem 0;
   }
   body.sloths-page main .tab-section + .tab-section{
-    padding: 4rem 0;
+    padding: -2rem 0;
   }
+  body.sloths-page main .tab-section{
+    padding: 4rem 0;
+  }  
   body.sloths-page main .tab-section .container{
     padding: 0.5rem 1rem;
   }

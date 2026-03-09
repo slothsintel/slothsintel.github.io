@@ -6,15 +6,15 @@ This guide keeps Sloths Intel copy calm, deliberate, and consistent.
 
 Every section (About, Approach, Product, Vacancy, etc.) must be exactly 3 paragraphs.
 
-### Paragraph 1 — Context / Why
+### Paragraph 1 - Context / Why
 - Define the problem or the reason the section exists.
 - Keep it concrete and human.
 
-### Paragraph 2 — Method / How
+### Paragraph 2 - Method / How
 - Explain how we work or what makes our approach different.
 - Avoid jargon unless it earns its place.
 
-### Paragraph 3 — Outcome / Result
+### Paragraph 3 - Outcome / Result
 - State what changes for the reader.
 - Make it measurable or defensible when possible.
 

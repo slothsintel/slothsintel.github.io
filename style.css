@@ -445,7 +445,7 @@ figure img{
    ========================================================= */
 
 .site-footer{
-  font-size: 0.74rem;      /* align with nav pills */
+  font-size: 0.7rem;      /* align with nav pills */
   padding: 0.7rem 0 1rem;  /* tighter vertical rhythm */
 }
 
@@ -462,13 +462,13 @@ figure img{
 
 .footer-meta p{
   margin: 0.05rem 0;
-  line-height: 1.35;
+  line-height: 1.2;
   font-size: inherit;
 }
 
 .footer-links{
   display: flex;
-  gap: 0.7rem;
+  gap: 0.5rem;
 }
 
 .footer-links a{
